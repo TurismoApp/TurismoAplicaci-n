@@ -2,10 +2,12 @@ import { NgModule } from "@angular/core";
 import { NativeScriptRouterModule } from "nativescript-angular/router";
 import { Routes } from "@angular/router";
 import { DetailsActivityComponent } from './details-activity/details-activity.component'
+import { ListActivitiesComponent } from "./list-activities/list-activities.component";
 
 
 const routes: Routes = [
-    { path: "", component: DetailsActivityComponent }
+    //{ path: "", component: DetailsActivityComponent }
+    { path: "", component: ListActivitiesComponent }
 ];
 
 @NgModule({

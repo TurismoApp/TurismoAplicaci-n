@@ -23,6 +23,7 @@ The following CSS rule changes the font size of all Buttons that have the
 Button.-primary {
     font-size: 18;
 }
+
 .fa{
     font-family: "fontawesome-webfont";
     margin: 5;
@@ -53,7 +54,7 @@ Button.-primary {
     margin: 5;
 }
 
-.R-regular{
+.R-thin{
     font-family: "Roboto-Thin";
     margin: 5;
 }

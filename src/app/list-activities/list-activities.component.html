@@ -1,6 +1,6 @@
 <ScrollView orientation="vertical">
     <StackLayout *ngFor="let item of list">
-        <ng-template [ngTemplateOutlet]="outlet" [ngOutletContext]="context">
+        <ng-template>
             <ns-list-item></ns-list-item>
         </ng-template>
     </StackLayout>

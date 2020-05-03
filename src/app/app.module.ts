@@ -4,6 +4,8 @@ import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { DetailsActivityComponent } from './details-activity/details-activity.component';
+import { ListActivitiesComponent } from './list-activities/list-activities.component';
+import { listItem } from "./list-activities/list-item.component";
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -22,6 +24,8 @@ import { DetailsActivityComponent } from './details-activity/details-activity.co
     declarations: [
         AppComponent,
         DetailsActivityComponent,
+        ListActivitiesComponent,
+        listItem
     ],
     providers: [],
     schemas: [
