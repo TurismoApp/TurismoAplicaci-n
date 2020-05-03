@@ -1,0 +1,41 @@
+/* Add mobile styles for the component here.  */
+.calendarIcon {
+    color: #FF317B;
+    font-size: 20;
+    padding-right: 10;
+    vertical-align: middle;
+}
+
+.activityCard {
+    margin-top: 20;
+    border-radius: 10;
+    background-color: white;
+    height: 470px;
+    width: 95%;
+}
+
+.descriptionGrid {
+    padding: 7;
+}
+
+.title {
+    color: #646363;
+    font-size: 19px;
+    margin: 0;
+}
+
+.dates {
+    color: #7B7A7A;
+    font-size: 15px;
+    margin: 0;  
+}
+
+.title, .dates {
+    padding-left: 10;
+}
+
+.imageActivity {
+    width: 100%;
+    border-top-left-radius: 10;
+    border-top-right-radius: 10;
+}
