@@ -1,17 +1,19 @@
 /* Add mobile styles for the component here.  */
 .calendarIcon {
-    color: #FF317B;
     font-size: 20;
     padding-right: 10;
     vertical-align: middle;
 }
 
 .activityCard {
-    margin-top: 20;
-    border-radius: 10;
-    background-color: white;
-    height: 470px;
-    width: 95%;
+    margin-top: 0;
+    margin-bottom: 5;
+    background-color: white; 
+    height: auto;
+    width: 100%;
+    border-radius: 5;
+    border-color: rgb(161, 161, 161);
+    border-width: 0.5;  
 }
 
 .descriptionGrid {
@@ -19,15 +21,19 @@
 }
 
 .title {
-    color: #646363;
-    font-size: 19px;
+    color: black;
+    font-size: 15;
     margin: 0;
+    padding-top: 10;
+    border-style: solid #646363 1;
+    padding-bottom: 0;
 }
 
 .dates {
     color: #7B7A7A;
-    font-size: 15px;
-    margin: 0;  
+    font-size: 13;
+    margin: 0; 
+    padding-top: 0; 
 }
 
 .title, .dates {
@@ -35,7 +41,21 @@
 }
 
 .imageActivity {
+    border-top-left-radius: 5;
+    border-top-right-radius: 5;
     width: 100%;
-    border-top-left-radius: 10;
-    border-top-right-radius: 10;
+    height: 100%;
+}
+
+.C-state {
+    color: #646363;
+}
+
+.D-state {
+    color: #FF317B;
+}
+
+.F-state { 
+    display: none;
+    color: transparent;
 }

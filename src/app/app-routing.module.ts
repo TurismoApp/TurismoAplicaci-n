@@ -6,8 +6,8 @@ import { ListActivitiesComponent } from "./list-activities/list-activities.compo
 
 
 const routes: Routes = [
-    //{ path: "", component: DetailsActivityComponent }
-    { path: "", component: ListActivitiesComponent }
+    { path: "", redirectTo: "listActivity", pathMatch: "full"},
+    { path: "listActivity", component: ListActivitiesComponent}  
 ];
 
 @NgModule({

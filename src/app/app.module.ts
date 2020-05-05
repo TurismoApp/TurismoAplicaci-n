@@ -1,12 +1,12 @@
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptModule } from "nativescript-angular/nativescript.module";
-
+import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular"
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { DetailsActivityComponent } from './details-activity/details-activity.component';
 import { ListActivitiesComponent } from './list-activities/list-activities.component';
 import { listItem } from "./list-activities/list-item.component";
-
+import { PagerModule, PagerComponent } from "nativescript-pager/angular";
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
 
@@ -18,8 +18,11 @@ import { listItem } from "./list-activities/list-item.component";
         AppComponent
     ],
     imports: [
+        PagerModule,
         NativeScriptModule,
-        AppRoutingModule
+        AppRoutingModule,
+        NativeScriptUIListViewModule,
+        
     ],
     declarations: [
         AppComponent,

@@ -1,7 +1,6 @@
-<ScrollView orientation="vertical">
-    <StackLayout *ngFor="let item of list">
-        <ng-template>
-            <ns-list-item></ns-list-item>
-        </ng-template>
-    </StackLayout>
-</ScrollView>
+<RadListView #listView [items]="dataItems" loadOnDemandMode="Manual"
+    (loadMoreDataRequested)="onLoadMoreItemsRequested($event)" backgroundColor="white">
+    <ng-template let-item="item"> 
+        <ns-list-item [activity]="item"></ns-list-item>
+    </ng-template>
+</RadListView>
