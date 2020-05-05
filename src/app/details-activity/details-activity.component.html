@@ -1,19 +1,23 @@
 <ScrollView orientation="vertical">
     <StackLayout backgroundColor="#fff">
-        <GridLayout androidElevation="5" rows="*, auto,auto" columns="auto, auto, auto" class="activityCard">
-            <Image row="0" col="0" width="100%" height="100%" stretch="aspectFill" class="imageActivity"
-                src="https://2.bp.blogspot.com/-hX25emRI8rM/TeVNhupLqMI/AAAAAAAAABQ/z_1yablDY6I/s1600/AQC.jpg">
-            </Image>
-            <Label text="Festival de la leyenda vallenata" col="0" row="1" class="title R-light"
-                textWrap="true"></Label>
-            <Label text="Fecha inicio - fecha final" col="0" row="2" class="subtitle R-light" textWrap="true"></Label>
+        <GridLayout androidElevation="5" rows="*,auto,auto" columns="*,auto,auto " class="activityCard">
+
+            <Pager loaded="onPageLoaded" row="0" colSpan="3" [items]="activity.images" #pager selectedIndex="0"
+                class="pager">
+                <ng-template let-i="index" let-item="item">
+                    <Image [src]="item" width="100%" height="100%" stretch="aspectFill" class="imageActivity"></Image>
+                </ng-template>
+            </Pager>
+            <Label text="{{activity.title}}" row="1" col="0" class="title R-light" textWrap="true"></Label>
+            <Label text="{{ activity.dateStart  | date:'mediumDate' }} - {{ activity.dateEnd  | date:'mediumDate' }}"
+                row="2" col="0" class="date R-light" textWrap="true"></Label>
         </GridLayout>
 
-        <GridLayout rows="*,auto" columns="*" class="descriptionGrid">
-            <Label text="Descripcion" class="descriptiontext R-regular" textWrap="true" col="0" row="0"></Label>
-            <Label textWrap="true" col="0" row="1" class="descriptiontext R-light" text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati aut eveniet harum,
-                 optio dolor excepturi! Reprehenderit, tenetur? Sit, culpa est officia, distinctio 
-                 tempore maxime id amet nobis vero quasi earum?"></Label>
-        </GridLayout> 
+        <GridLayout row="0" rows="*,auto" columns="auto, auto" class="descriptionGrid">
+            <Label text="Descripcion" class="Descriptitle R-light" textWrap="true" col="0" row="0"></Label>
+            <Label text="{{activity.description}}" textWrap="true" col="0" row="1"
+                class="descriptiontext R-regular"></Label>
+        </GridLayout>
+
     </StackLayout>
 </ScrollView>

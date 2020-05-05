@@ -1,34 +1,40 @@
-
 .title {
 	color: #646363;
-    font-size: 19px;
+	font-size: 19px;
+	padding-bottom: 0;
     margin: 0;
 }
  
-.subtitle{
+.date{
 	color: #646363; 
+	padding-top: 0;
 	font-size: 17px;
+	margin: 0;
 }
 
 .descriptionGrid {
-	margin-top: 15p;
-	padding: 7;
-	background-color: black;
+	margin-top: 5;
+	padding: 7; 
 	margin-bottom: 10;
-	width: 95%;
+	width: 100%;
 }
 
 .descriptiontext{
 	font-size: 14;
-	color:#fff;
+	color:#000;
+}
+
+.Descriptitle{
+	font-size: 19;
+	color:#FF317B;
 }
 
 .activityCard {
-    margin-top: 20;
+    margin-top: 10;
     border-radius: 10;
     background-color: white;
-    height: 470px;
-    width: 95%;
+    height: 320;
+    width: 100%;
 }
 
 
