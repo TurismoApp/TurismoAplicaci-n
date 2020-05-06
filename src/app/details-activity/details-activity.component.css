@@ -1,14 +1,21 @@
 .title {
-	color: #646363;
-	font-size: 19px;
+	color: #000;
+	font-size: 26;
+	margin-top: 5;
 	padding-bottom: 0;
+	padding-left: 10;
     margin: 0;
 }
- 
+
+.pager {
+	height: 550;
+}
+
 .date{
 	color: #646363; 
+	padding-left: 10;
 	padding-top: 0;
-	font-size: 17px;
+	font-size: 14;
 	margin: 0;
 }
 
@@ -20,26 +27,50 @@
 }
 
 .descriptiontext{
-	font-size: 14;
+	padding-bottom: 0;
+	font-size: 16;
 	color:#000;
 }
 
 .Descriptitle{
+	padding-bottom: 3;
 	font-size: 19;
 	color:#FF317B;
 }
 
 .activityCard {
-    margin-top: 10;
-    border-radius: 10;
     background-color: white;
     height: 320;
     width: 100%;
 }
 
+.iconOption {
+	margin: 10;
+	padding: 0;
+	border-radius: 50%;
+	width: 50;
+	background-color: white;
+	font-size: 25;
+	color: #FF317B;
+	vertical-align: middle;
+}
 
 .imageActivity {
 	width: 100%;
-    border-top-left-radius: 10;
-    border-top-right-radius: 10;
+} 
+
+.iconActions{
+	align-content: center;
+}
+
+.iconZoom {
+	vertical-align: bottom;
+	background-color: rgba(0, 0, 0, 0.397);
+	color: white;
+	width: 50;
+	font-size: 20;
+}
+
+.absoluteZoom {
+	vertical-align: top;
 }
