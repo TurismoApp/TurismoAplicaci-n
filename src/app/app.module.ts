@@ -5,6 +5,8 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { DetailsActivityComponent } from './details-activity/details-activity.component';
 import { PagerModule } from 'nativescript-pager/angular';
+
+import { ModalComponent } from "../Modal/details-modal.component";
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
 
@@ -23,7 +25,9 @@ import { PagerModule } from 'nativescript-pager/angular';
     declarations: [
         AppComponent,
         DetailsActivityComponent,
+        ModalComponent
     ],
+    entryComponents: [ModalComponent],
     providers: [],
     schemas: [
         NO_ERRORS_SCHEMA

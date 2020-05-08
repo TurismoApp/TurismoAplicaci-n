@@ -1,11 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { Activity } from '~/models/activity.model';
+import { ModalDialogService, ModalDialogOptions } from 'nativescript-angular/modal-dialog';
+
+import { ModalComponent } from '../../Modal/details-modal.component';
+
 @Component({
   selector: 'ns-details-activity',
+  providers: [ModalComponent],
   templateUrl: './details-activity.component.html',
   styleUrls: ['./details-activity.component.css']
 })
 export class DetailsActivityComponent implements OnInit {
+
+  constructor(private _ModalService: ModalDialogService, private _viewcontainer: ViewContainerRef) { }
 
   activity: Activity = JSON.parse(`{
     "id": 14,
@@ -30,9 +37,17 @@ export class DetailsActivityComponent implements OnInit {
     "idUbicación": 2
 }`);
 
-  constructor() { }
+
 
   ngOnInit(): void {
   }
 
+  ShowModal() {
+    const options: ModalDialogOptions = {
+      viewContainerRef: this._viewcontainer,
+      fullscreen: false,
+      context: {}
+    };
+    this._ModalService.showModal(ModalComponent, options);
+  }
 }

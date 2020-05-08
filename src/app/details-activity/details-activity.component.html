@@ -3,7 +3,7 @@
         <Pager loaded="onPageLoaded" row="0" colSpan="3" [items]="activity.images" #pager selectedIndex="0"
             class="pager">
             <ng-template let-i="index" let-item="item">
-                <Image [src]="item" width="100%" height="auto" stretch="aspectFill" class="imageActivity" ></Image>
+                <Image [src]="item" width="100%" height="auto" stretch="aspectFill" class="imageActivity"></Image>
             </ng-template>
         </Pager>
         <Label text="{{ activity.title }}" row="1" col="0" colSpan="3" class="title R-light" textWrap="true"></Label>
@@ -26,5 +26,5 @@
     </StackLayout>
 </StackLayout>
 <AbsoluteLayout width="100%" height="190" class="absoluteZoom">
-    <button text="&#xf0b2;" class="fa iconZoom"></button>    
+    <button text="&#xf0b2;" class="fa iconZoom" (tap)="ShowModal()"></button>
 </AbsoluteLayout>
