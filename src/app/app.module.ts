@@ -10,6 +10,7 @@ import { DetailsActivityComponent } from './details-activity/details-activity.co
 import { PagerModule } from 'nativescript-pager/angular';
 import { imagesModalComponent } from "./modal-images/details-modal.component"
 
+import { imagesModalComponent } from "./modal-images/details-modal.component"
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
 
