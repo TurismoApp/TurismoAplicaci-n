@@ -3,7 +3,6 @@ import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular"
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { DetailsActivityComponent } from './details-activity/details-activity.component';
 import { ListActivitiesComponent } from './list-activities/list-activities.component';
 import { listItem } from "./list-activities/list-item.component";
 import { PagerModule, PagerComponent } from "nativescript-pager/angular";
@@ -26,7 +25,6 @@ import { PagerModule, PagerComponent } from "nativescript-pager/angular";
     ],
     declarations: [
         AppComponent,
-        DetailsActivityComponent,
         ListActivitiesComponent,
         listItem
     ],

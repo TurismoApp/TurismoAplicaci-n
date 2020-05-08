@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Activity } from '~/models/activity.model';
 import { ObservableArray } from 'tns-core-modules/data/observable-array/observable-array';
 import { RadListView, LoadOnDemandListViewEventData } from 'nativescript-ui-listview';
+import { switchMap } from "rxjs/internal/operators";
 import { Observable } from 'tns-core-modules/ui/page/page';
+import { PageRoute } from 'nativescript-angular/router';
 
 let LIST_ARRAY_ACTIVITIES: Activity[] = JSON.parse(`[
 	{
@@ -813,17 +815,38 @@ let LIST_ARRAY_ACTIVITIES: Activity[] = JSON.parse(`[
 	styleUrls: ['./list-activities.component.css']
 })
 
-export class ListActivitiesComponent extends Observable{
-	
-	private _sourceDataItems = new ObservableArray<Activity>();
+export class ListActivitiesComponent extends Observable implements OnInit {
 
-	constructor() { 
+	private _sourceDataItems = new ObservableArray<Activity>();
+	listaCronogramas: any[] = [];
+	constructor(
+		private pageRouter: PageRoute
+	) {
 		super();
 		this.dataItems = new ObservableArray<Activity>();
-		this._sourceDataItems.push(LIST_ARRAY_ACTIVITIES);
+		this.pageRouter.activatedRoute.pipe(switchMap(activatedRoute => activatedRoute.params)).
+			forEach((params) => {
+				params["schedules"] ? () => {
+					let count = this._sourceDataItems.length;
+					this._sourceDataItems.splice(0, count);
+					this._sourceDataItems.push(<Activity[]>params["schedules"]);
+				}:null;
+			});
+		
+		this._sourceDataItems.length === 0 ? 
+		this._sourceDataItems.push(LIST_ARRAY_ACTIVITIES): null;
+		
 		this.addMoreItemsFromSource(5, null);
-	} 
-	
+	}
+
+	ngOnInit(): void {
+		//agregar llenado del servicio
+		//this._sourceDataItems.push();
+	}
+
+	onUnloaded() {
+		console.log('cargando')
+	}
 
 	get dataItems(): ObservableArray<Activity> {
 		return this.get("_dataItems");
