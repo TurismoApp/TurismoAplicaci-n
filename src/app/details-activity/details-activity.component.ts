@@ -2,11 +2,11 @@ import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { Activity } from '~/models/activity.model';
 import { ModalDialogService, ModalDialogOptions } from 'nativescript-angular/modal-dialog';
 
-import { ModalComponent } from '../../Modal/details-modal.component';
+import { imagesModalComponent } from '../modal-images/details-modal.component';
 
 @Component({
   selector: 'ns-details-activity',
-  providers: [ModalComponent],
+  providers: [imagesModalComponent],
   templateUrl: './details-activity.component.html',
   styleUrls: ['./details-activity.component.css']
 })
@@ -48,6 +48,6 @@ export class DetailsActivityComponent implements OnInit {
       fullscreen: true,
       context: {}
     };
-    this._ModalService.showModal(ModalComponent, options);
+    this._ModalService.showModal(imagesModalComponent, options);
   }
 }

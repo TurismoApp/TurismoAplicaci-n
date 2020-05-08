@@ -6,7 +6,7 @@ import { AppComponent } from "./app.component";
 import { DetailsActivityComponent } from './details-activity/details-activity.component';
 import { PagerModule } from 'nativescript-pager/angular';
 
-import { ModalComponent } from "../Modal/details-modal.component";
+import { imagesModalComponent } from "./modal-images/details-modal.component"
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
 
@@ -25,9 +25,9 @@ import { ModalComponent } from "../Modal/details-modal.component";
     declarations: [
         AppComponent,
         DetailsActivityComponent,
-        ModalComponent
+        imagesModalComponent
     ],
-    entryComponents: [ModalComponent],
+    entryComponents: [imagesModalComponent],
     providers: [],
     schemas: [
         NO_ERRORS_SCHEMA

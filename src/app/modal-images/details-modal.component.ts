@@ -3,7 +3,7 @@ import { ModalDialogParams } from 'nativescript-angular/modal-dialog';
 import { Activity } from '~/models/activity.model';
 
 @Component({
-    selector: 'Modal',
+    selector: 'images-modal',
     template: `
 <StackLayout>
     <AbsoluteLayout width="100%" height="100" class="actionBarSupler">
@@ -17,12 +17,12 @@ import { Activity } from '~/models/activity.model';
             <Image [src]="item" width="100%" height="100%" stretch="aspectFit" loadMode="async"></Image>
         </ng-template>
     </Pager>
-</StackLayout> 
+</StackLayout>
         `,
     styleUrls: ['./details-modal.component.css']
 
 })
-export class ModalComponent implements OnInit {
+export class imagesModalComponent implements OnInit {
 
     constructor(private _ModalParam: ModalDialogParams) { }   
 
