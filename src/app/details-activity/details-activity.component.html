@@ -1,0 +1,30 @@
+<StackLayout backgroundColor="#fff">
+    <GridLayout rows="*,auto,auto,auto" columns="*,auto,auto " class="activityCard">
+        <Pager loaded="onPageLoaded" row="0" colSpan="3" [items]="activity.images" #pager selectedIndex="0"
+            class="pager">
+            <ng-template let-i="index" let-item="item">
+                <Image [src]="item" width="100%" height="auto" stretch="aspectFill" class="imageActivity"></Image>
+            </ng-template>
+        </Pager>
+        <Label text="{{ activity.title }}" row="1" col="0" colSpan="3" class="title R-light" textWrap="true"></Label>
+        <Label text="{{ activity.dateStart  | date:'mediumDate' }} - {{ activity.dateEnd  | date:'mediumDate' }}"
+            row="2" col="0" colSpan="3" class="date R-light" textWrap="true"></Label>
+        <GridLayout row="3" col="0" colSpan="3" rows="70" columns="*,*,*" class="iconActions">
+            <Button text="&#xf073;" row="0" col="0" class="fa iconOption"></Button>
+            <Button text="&#xf041;" row="0" col="1" class="fa iconOption"></Button>
+            <Button text="&#xf097;" row="0" col="2" class="fa iconOption"></Button>
+        </GridLayout>
+    </GridLayout>
+    <StackLayout height="auto">
+        <ScrollView orientation="vertical" height="100%">
+            <GridLayout row="0" rows="*,auto" columns="*" class="descriptionGrid">
+                <Label text="Descripción" class="Descriptitle R-light" textWrap="true" col="0" row="0"></Label>
+                <Label text="{{activity.description}}" textWrap="true" col="0" row="1"
+                    class="descriptiontext R-regular"></Label>
+            </GridLayout>
+        </ScrollView>
+    </StackLayout>
+</StackLayout>
+<AbsoluteLayout width="100%" height="190" class="absoluteZoom">
+    <button text="&#xf0b2;" class="fa iconZoom" (tap)="ShowModal()"></button>
+</AbsoluteLayout>

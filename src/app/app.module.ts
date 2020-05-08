@@ -6,6 +6,10 @@ import { AppComponent } from "./app.component";
 import { ListActivitiesComponent } from './list-activities/list-activities.component';
 import { listItem } from "./list-activities/list-item.component";
 import { PagerModule, PagerComponent } from "nativescript-pager/angular";
+import { DetailsActivityComponent } from './details-activity/details-activity.component';
+import { PagerModule } from 'nativescript-pager/angular';
+import { imagesModalComponent } from "./modal-images/details-modal.component"
+
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
 
@@ -27,7 +31,10 @@ import { PagerModule, PagerComponent } from "nativescript-pager/angular";
         AppComponent,
         ListActivitiesComponent,
         listItem
+        DetailsActivityComponent,
+        imagesModalComponent
     ],
+    entryComponents: [imagesModalComponent],
     providers: [],
     schemas: [
         NO_ERRORS_SCHEMA
