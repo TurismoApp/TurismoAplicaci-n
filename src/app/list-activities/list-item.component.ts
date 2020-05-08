@@ -2,10 +2,10 @@ import { Component, Input, OnInit } from "@angular/core";
 import { Activity } from "~/models/activity.model";
 import { Router } from "@angular/router";
 
-@Component({ 
+@Component({
     selector: 'ns-list-item',
     template: ` 
-        <GridLayout (tap)="onDetailActivity()"  rows="*,auto" columns="*" class="activityCard">
+        <GridLayout (tap)="onDetailActivity()" pageTransition="slide" rows="*,auto" columns="*" class="activityCard">
             <Image row="0" col="0" src="{{activity.images[0]}}" decodeWidth="100%" decodeHeight="auto" stretch="aspectFit" loadMode="async" class="imageActivity"></Image>
             <GridLayout row="1" col="0" rows="*,*" columns="*, auto" class="descriptionGrid"> 
                 <Label text="{{activity.title}}" androidElevation="1" row="0" col="0" class="title R-regular" textWrap="true"></Label>
@@ -18,7 +18,7 @@ import { Router } from "@angular/router";
     styleUrls: ['./list-activities.component.css'],
 })
 
-export class listItem  {
+export class listItem {
     @Input() activity: Activity;
     public image: Blob;
     constructor(
@@ -26,7 +26,9 @@ export class listItem  {
     ) { }
 
     onDetailActivity() {
-       this.router.navigateByUrl('detailActivity/' + JSON.stringify(this.activity));  
+        console.log(this.activity.id);
+        this.router.navigateByUrl('detailActivity/' + JSON.stringify(this.activity));
+
     }
 
     stateActivity() {
