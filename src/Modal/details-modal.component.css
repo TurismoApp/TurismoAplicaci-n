@@ -1,5 +1,14 @@
 .activityModal{
     padding: 20;
-    
+}
 
+.botonExit {
+    border-radius: 50;
+    width: 50;
+    font-size: 25;
+    color: #FF317B;
+}
+.titleBar {
+    font-size: 25;
+    vertical-align: middle;
 }

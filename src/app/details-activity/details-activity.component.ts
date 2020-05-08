@@ -45,7 +45,7 @@ export class DetailsActivityComponent implements OnInit {
   ShowModal() {
     const options: ModalDialogOptions = {
       viewContainerRef: this._viewcontainer,
-      fullscreen: false,
+      fullscreen: true,
       context: {}
     };
     this._ModalService.showModal(ModalComponent, options);
