@@ -23,7 +23,7 @@ import { imagesModalComponent } from "./modal-images/details-modal.component";
         NativeScriptModule,
         AppRoutingModule,
         NativeScriptUIListViewModule,
-        
+
     ],
     declarations: [
         AppComponent,
