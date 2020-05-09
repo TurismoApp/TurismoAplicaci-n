@@ -1,10 +1,7 @@
 import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { Activity } from '~/models/activity.model';
 import { ModalDialogService, ModalDialogOptions } from 'nativescript-angular/modal-dialog';
-
 import { imagesModalComponent } from '../modal-images/details-modal.component';
-import { switchMap } from 'rxjs/internal/operators';
-import { PageRoute } from 'nativescript-angular/router';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({

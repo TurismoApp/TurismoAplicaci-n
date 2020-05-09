@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalDialogParams } from 'nativescript-angular/modal-dialog';
-import { Activity } from '~/models/activity.model';
 
 @Component({
     selector: 'images-modal',
