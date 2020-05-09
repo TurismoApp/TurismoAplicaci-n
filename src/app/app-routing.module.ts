@@ -6,10 +6,9 @@ import { DetailsActivityComponent } from "./details-activity/details-activity.co
 
 
 const routes: Routes = [
-    { path: "", redirectTo: "listActivity", pathMatch: "full" },
-    { path: "detailActivity/:details", component: DetailsActivityComponent },
-    { path: "listActivity", component: ListActivitiesComponent },
-    { path: "listActivity/:schedules", component: ListActivitiesComponent }
+    { path: "", redirectTo: "listActivity", pathMatch: "full"},
+    { path: "listActivity", component: ListActivitiesComponent},
+    { path: "detailsActivity", component: DetailsActivityComponent  } 
 ];
 
 @NgModule({
