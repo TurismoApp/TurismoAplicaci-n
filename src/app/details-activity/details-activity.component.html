@@ -12,7 +12,9 @@
         <GridLayout row="3" col="0" colSpan="3" rows="70" columns="*,*,*" class="iconActions">
             <Button text="&#xf073;" row="0" col="0" class="fa iconOption"></Button>
             <Button text="&#xf041;" row="0" col="1" class="fa iconOption"></Button>
-            <Button text="&#xf097;" row="0" col="2" class="fa iconOption"></Button>
+            <Button text="{{validateState(activity) ? '&#xf02e;' : '&#xf097;'}}" row="0" col="2" class="fa iconOption"
+                (tap)="ActivityState(activity)">
+            </Button>
         </GridLayout>
     </GridLayout>
     <StackLayout height="auto">
