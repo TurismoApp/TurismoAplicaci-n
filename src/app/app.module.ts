@@ -8,6 +8,7 @@ import { listItem } from "./list-activities/list-item.component";
 import { DetailsActivityComponent } from './details-activity/details-activity.component';
 import { PagerModule } from 'nativescript-pager/angular';
 import { imagesModalComponent } from "./modal-images/details-modal.component";
+import { MapComponent } from "./map-component/Map.component";
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
 
@@ -22,15 +23,15 @@ import { imagesModalComponent } from "./modal-images/details-modal.component";
         PagerModule,
         NativeScriptModule,
         AppRoutingModule,
-        NativeScriptUIListViewModule,
-
+        NativeScriptUIListViewModule
     ],
     declarations: [
         AppComponent,
         ListActivitiesComponent,
         listItem,
         DetailsActivityComponent,
-        imagesModalComponent
+        imagesModalComponent,
+        MapComponent
     ],
     entryComponents: [imagesModalComponent],
     providers: [],
