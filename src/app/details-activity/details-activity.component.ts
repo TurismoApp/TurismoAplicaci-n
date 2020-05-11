@@ -14,6 +14,7 @@ import { DetailService } from '~/service/details-activity.service';
 })
 export class DetailsActivityComponent implements OnInit {
   activity: Activity;
+
   listActivitySave: Activity[] = [];
   constructor(private _ModalService: ModalDialogService,
     private _viewcontainer: ViewContainerRef,
