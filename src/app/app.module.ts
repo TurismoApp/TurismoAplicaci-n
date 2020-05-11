@@ -10,6 +10,9 @@ import { DetailsActivityComponent } from './details-activity/details-activity.co
 import { PagerModule } from 'nativescript-pager/angular';
 import { imagesModalComponent } from "./modal-images/details-modal.component";
 import { DiaryActivityComponent } from './diary-activity/diary-activity.component';
+import { MapComponent } from "./map-component/Map.component";
+import { BottomMenuComponent } from "./bottom-menu/bottom-menu.component";
+import { ActionBarComponent } from "./action-bar/action-bar.component";
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
 
@@ -24,8 +27,7 @@ import { DiaryActivityComponent } from './diary-activity/diary-activity.componen
         PagerModule,
         NativeScriptModule,
         AppRoutingModule,
-        NativeScriptUIListViewModule,
-
+        NativeScriptUIListViewModule
     ],
     declarations: [
         AppComponent,
@@ -35,6 +37,9 @@ import { DiaryActivityComponent } from './diary-activity/diary-activity.componen
         DetailsActivityComponent,
         imagesModalComponent,
         DiaryActivityComponent
+        MapComponent,
+        BottomMenuComponent,
+        ActionBarComponent
     ],
     entryComponents: [imagesModalComponent],
     providers: [],

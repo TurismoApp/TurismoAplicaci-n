@@ -2,7 +2,7 @@ import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { Activity } from '~/models/activity.model';
 import { ModalDialogService, ModalDialogOptions } from 'nativescript-angular/modal-dialog';
 import { imagesModalComponent } from '../modal-images/details-modal.component';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { getString, setString } from 'tns-core-modules/application-settings';
 import { DetailService } from '~/service/details-activity.service';
 
@@ -18,7 +18,8 @@ export class DetailsActivityComponent implements OnInit {
   listActivitySave: Activity[] = [];
   constructor(private _ModalService: ModalDialogService,
     private _viewcontainer: ViewContainerRef,
-    private pageRoute: ActivatedRoute) {
+    private pageRoute: ActivatedRoute,
+    private navigation: Router) {
   }
 
   ngOnInit(): void {
@@ -51,6 +52,10 @@ export class DetailsActivityComponent implements OnInit {
   ActivityState(activity: Activity) {
     this.validateState(activity) ? this.DeleteState(activity) : this.SaveDetailActivity(activity);
     this.listActivitySave = DetailService.GetListActivity();
+  }
+
+  seeUbications(activity: Activity) {
+    this.navigation.navigateByUrl("/mapComponent");
   }
 
   ShowModal() {

@@ -825,7 +825,8 @@ export class ListActivitiesComponent extends Observable implements OnInit {
 		this._sourceDataItems.push(LIST_ARRAY_ACTIVITIES);
 		this.addMoreItemsFromSource(5, null);
 		this.pageRouter.queryParams.subscribe((params: Activity[]) => {
-			//this._sourceDataItems.push(params);
+			params ? 
+			 this._sourceDataItems.push(params) : null;
 		});
 	}
  

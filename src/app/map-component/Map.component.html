@@ -1,0 +1,29 @@
+<ns-action-bar></ns-action-bar>
+<StackLayout height="100%" width="100%">
+    <ContentView height="100%" width="100%">
+        <Mapbox #mapbox
+            accessToken="pk.eyJ1Ijoicm95YmVyMzY5IiwiYSI6ImNrOXpxYnI5dTBndTUzbHBvOXgyd3g3Z3AifQ.sMTuE9tgeEikxVie6pfdMw"
+            latitude="10.470761" longitude="-73.257779" mapStyle="streets-v11" hideCompass="true" zoomLevel="14"
+            [showUserLocation]="savePosition" disableZoom="false" disableRotation="false" disableScroll="false"
+            disableTilt="false" (mapReady)="onMapReady($event)">
+        </Mapbox>
+    </ContentView>
+</StackLayout>
+<StackLayout verticalAlignment="bottom" height="290" width="100%">
+    <GridLayout rows="*, *, *" columns="*,*,*,*">
+        <StackLayout *ngIf="savePosition" class="mapButtons" col="3" row="0">
+            <Label class="R-regular" text="Guardar"></Label>
+            <Button  text="&#xf004;" (tap)="saveYourPosition()" class="fa savePosition"></Button>
+        </StackLayout>
+        <StackLayout *ngIf="savePosition" class="mapButtons" col="3" row="1">
+            <Label class="R-regular" text="Hogar"></Label>
+            <Button  text="&#xf041;" (tap)="seeHogar()"
+                class="fa savePosition"></Button>
+           
+        </StackLayout>
+        <StackLayout  class="mapButtons" col="3" row="2">
+            <Label class="R-regular" text="Todo"></Label>
+            <Button text="&#xf05b;" (tap)="setViewToCity()" class="fa buttons"></Button>
+        </StackLayout>
+    </GridLayout>
+</StackLayout>

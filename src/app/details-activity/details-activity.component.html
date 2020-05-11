@@ -1,3 +1,4 @@
+<ns-action-bar></ns-action-bar>
 <StackLayout backgroundColor="#fff">
     <GridLayout rows="*,auto,auto,auto" columns="*,auto,auto " class="activityCard">
         <Pager loaded="onPageLoaded" row="0" colSpan="3" [items]="activity.images" #pager selectedIndex="0"
@@ -11,7 +12,7 @@
             row="2" col="0" colSpan="3" class="date R-light" textWrap="true"></Label>
         <GridLayout row="3" col="0" colSpan="3" rows="70" columns="*,*,*" class="iconActions">
             <Button text="&#xf073;" row="0" col="0" class="fa iconOption"></Button>
-            <Button text="&#xf041;" row="0" col="1" class="fa iconOption"></Button>
+            <Button text="&#xf041;" row="0" col="1" class="fa iconOption" (tap) ="seeUbications(activity)"></Button>
             <Button text="{{validateState(activity) ? '&#xf02e;' : '&#xf097;'}}" row="0" col="2" class="fa iconOption"
                 (tap)="ActivityState(activity)">
             </Button>

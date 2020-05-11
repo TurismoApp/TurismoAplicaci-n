@@ -1,0 +1,19 @@
+.buttons, .savePosition {
+    border-radius: 50;
+    width: 50;
+    font-size: 25;
+    background-color: #FF317B;
+    color: white;
+}
+
+.mapButtons {
+    text-align: center;
+}
+
+Label {
+    background-color: white;
+    padding: 0;
+    width: 60;
+    padding: 2;
+    border-radius: 15;
+}
