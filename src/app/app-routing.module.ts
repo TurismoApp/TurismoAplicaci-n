@@ -7,10 +7,11 @@ import { MapComponent } from "./map-component/Map.component";
 
 
 const routes: Routes = [
-    { path: "", redirectTo: "mapComponent", pathMatch: "full"},
+    { path: "", redirectTo: "listActivity", pathMatch: "full"},
     { path: "listActivity", component: ListActivitiesComponent},
     { path: "detailsActivity", component: DetailsActivityComponent  },
-    { path: "mapComponent", component: MapComponent }
+    { path: "mapComponent", component: MapComponent },
+    { path: "mapComponent/:savePosition", component: MapComponent }
 ];
 
 @NgModule({
