@@ -1,0 +1,1 @@
+export type menuBottomOptions = "listActivity" | "diary" | "mapComponent/true" | "places";
