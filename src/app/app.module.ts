@@ -5,9 +5,11 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { ListActivitiesComponent } from './list-activities/list-activities.component';
 import { listItem } from "./list-activities/list-item.component";
+import { DiaryItem } from "./diary-activity/diary-item.component";
 import { DetailsActivityComponent } from './details-activity/details-activity.component';
 import { PagerModule } from 'nativescript-pager/angular';
 import { imagesModalComponent } from "./modal-images/details-modal.component";
+import { DiaryActivityComponent } from './diary-activity/diary-activity.component';
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
 
@@ -29,8 +31,10 @@ import { imagesModalComponent } from "./modal-images/details-modal.component";
         AppComponent,
         ListActivitiesComponent,
         listItem,
+        DiaryItem,
         DetailsActivityComponent,
-        imagesModalComponent
+        imagesModalComponent,
+        DiaryActivityComponent
     ],
     entryComponents: [imagesModalComponent],
     providers: [],

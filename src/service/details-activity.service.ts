@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Activity } from '~/models/activity.model';
 import * as appSettings from "tns-core-modules/application-settings";
 
@@ -6,7 +6,10 @@ import * as appSettings from "tns-core-modules/application-settings";
     providedIn: "root"
 })
 export class DetailService {
+    ActivityDelete = new EventEmitter<Activity[]>();
+    construcor() {
 
+    }
     public static SaveActivity(activity: Activity[]) {
         appSettings.setString("activity", JSON.stringify(activity));
     }
@@ -27,4 +30,8 @@ export class DetailService {
         this.SaveActivity(ListActivity);
     }
 
+    public static DeteleData(activity: Activity) {
+        const activ = this.GetListActivity();
+        this.ValidateStateActivity(activity, activ) ? this.DeleteActivity(activity, activ) : console.log(false);
+    }
 }
