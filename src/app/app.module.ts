@@ -13,6 +13,7 @@ import { DiaryActivityComponent } from './diary-activity/diary-activity.componen
 import { MapComponent } from "./map-component/Map.component";
 import { BottomMenuComponent } from "./bottom-menu/bottom-menu.component";
 import { ActionBarComponent } from "./action-bar/action-bar.component";
+import { PlacesInterestComponent } from "./places-interest/places-interest.component";
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
 
@@ -39,7 +40,8 @@ import { ActionBarComponent } from "./action-bar/action-bar.component";
         DiaryActivityComponent,
         MapComponent,
         BottomMenuComponent,
-        ActionBarComponent
+        ActionBarComponent,
+        PlacesInterestComponent
     ],
     entryComponents: [imagesModalComponent],
     providers: [],
