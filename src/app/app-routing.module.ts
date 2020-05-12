@@ -8,12 +8,12 @@ import { DiaryActivityComponent } from "./diary-activity/diary-activity.componen
 
 //deatyactivity
 const routes: Routes = [
-    { path: "", redirectTo: "listActivity", pathMatch: "full"},
-    { path: "listActivity", component: ListActivitiesComponent},
-    { path: "detailsActivity", component: DetailsActivityComponent  },
+    { path: "", redirectTo: "listActivity", pathMatch: "full" },
+    { path: "listActivity", component: ListActivitiesComponent },
+    { path: "detailsActivity", component: DetailsActivityComponent },
     { path: "mapComponent", component: MapComponent },
-    { path: "mapComponent/:savePosition", component: MapComponent }
-    { path: "diaryactivity", component: DiaryActivityComponent }
+    { path: "mapComponent/:savePosition", component: MapComponent },
+    { path: "diaryActivity", component: DiaryActivityComponent }
 ];
 
 @NgModule({

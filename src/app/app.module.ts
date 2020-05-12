@@ -36,7 +36,7 @@ import { ActionBarComponent } from "./action-bar/action-bar.component";
         DiaryItem,
         DetailsActivityComponent,
         imagesModalComponent,
-        DiaryActivityComponent
+        DiaryActivityComponent,
         MapComponent,
         BottomMenuComponent,
         ActionBarComponent
