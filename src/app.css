@@ -23,3 +23,42 @@ The following CSS rule changes the font size of all Buttons that have the
 Button.-primary {
     font-size: 18;
 }
+
+.fa{
+    font-family: "fontawesome-webfont";
+    margin: 5;
+}
+
+.R-black{
+    font-family: "Roboto-Black";
+    margin: 5;
+}
+
+.R-bold{
+    font-family: "Roboto-Bold";
+    margin: 5;
+}
+
+.R-light{
+    font-family: "Roboto-Light";
+    margin: 5;
+}
+
+.R-medium{
+    font-family: "Roboto-Medium";
+    margin: 5;
+}
+
+.R-regular{
+    font-family: "Roboto-Regular";
+    margin: 5;
+}
+
+.R-thin{
+    font-family: "Roboto-Thin";
+    margin: 5;
+}
+
+.P-regular {
+    font-family: "Pacifico-Regular";
+}

@@ -1,2 +1,10 @@
 <!-- https://docs.nativescript.org/angular/core-concepts/angular-navigation.html#page-router-outlet -->
-<page-router-outlet></page-router-outlet>
+<GridLayout rows="*, auto" columns="auto" width="auto">
+    <StackLayout row="0" col="0" width="100%">
+        <page-router-outlet>
+        </page-router-outlet>
+    </StackLayout>
+    <StackLayout style="border-width: 0.5 0 0 0;border-color: rgb(211, 211, 211);" row="2" col="0" width="100%">
+        <ns-bottom-menu></ns-bottom-menu>
+    </StackLayout>
+</GridLayout> 

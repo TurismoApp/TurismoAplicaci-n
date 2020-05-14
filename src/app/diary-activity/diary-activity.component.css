@@ -1,0 +1,42 @@
+.activityCard {
+    margin-top: 0;
+    margin-bottom: 9;
+    background-color: white; 
+    height: auto;
+    width: 100%;
+    border-color: rgb(209, 209, 209);
+}
+
+.imageActivity {
+    border-radius: 100;
+    margin: 8 16;
+    height: 70;
+    width: 70;
+}
+
+.title {
+	color: #000;
+	font-size: 20;
+	padding-bottom: 0;
+    padding-left: 5; 
+	margin: 0;
+}
+
+
+.dates{
+	color: #646363; 
+    padding-left: 5;
+    margin-bottom: 10;
+    padding-bottom: 0;
+	font-size: 15;
+	margin: 0;
+}
+
+.botonDelete {
+    background-color: white; 
+    border-radius: 50;
+    width: 50;
+    font-size: 25;
+    color: #FF317B;
+}
+ 

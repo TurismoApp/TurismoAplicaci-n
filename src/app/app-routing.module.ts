@@ -1,14 +1,19 @@
 import { NgModule } from "@angular/core";
 import { NativeScriptRouterModule } from "nativescript-angular/router";
 import { Routes } from "@angular/router";
+import { ListActivitiesComponent } from "./list-activities/list-activities.component";
+import { DetailsActivityComponent } from "./details-activity/details-activity.component";
+import { MapComponent } from "./map-component/Map.component";
+import { DiaryActivityComponent } from "./diary-activity/diary-activity.component";
 
-import { ItemsComponent } from "./item/items.component";
-import { ItemDetailComponent } from "./item/item-detail.component";
-
+//deatyactivity
 const routes: Routes = [
-    { path: "", redirectTo: "/items", pathMatch: "full" },
-    { path: "items", component: ItemsComponent },
-    { path: "item/:id", component: ItemDetailComponent }
+    { path: "", redirectTo: "listActivity", pathMatch: "full" },
+    { path: "listActivity", component: ListActivitiesComponent },
+    { path: "detailsActivity", component: DetailsActivityComponent },
+    { path: "mapComponent", component: MapComponent },
+    { path: "mapComponent/:savePosition", component: MapComponent },
+    { path: "diaryActivity", component: DiaryActivityComponent }
 ];
 
 @NgModule({

@@ -1,0 +1,29 @@
+<GridLayout class="menuBottom" rows="auto" columns="*,*,*,*" height="50" width="auto">
+    <StackLayout (tap)="menuDirections('listActivity')" class="menuItem" row="0" col="0">
+        <StackLayout class="menuButton">
+            <Label text="&#xf046;" class="fa"></Label>
+        </StackLayout>
+    </StackLayout>
+
+    <StackLayout (tap)="menuDirections('diaryActivity')" class="menuItem" row="0" col="1">
+        <StackLayout class="menuButton">
+            <Label text="&#xf02d;" class="fa"></Label>
+        </StackLayout>
+    </StackLayout>
+
+    <StackLayout (tap)="menuDirections('mapComponent/true')" class="menuItem" row="0" col="2" height="100%">
+        <StackLayout class="menuButton">
+            <Label text="&#xf041;" class="fa"></Label>
+        </StackLayout>
+    </StackLayout>
+
+    <StackLayout (tap)="menuDirections('places')" class="menuItem" row="0" col="3">
+        <StackLayout class="menuButton">
+            <Label text="&#xf1d8;" class="fa"></Label>
+        </StackLayout>
+    </StackLayout>
+
+    <!-- <StackLayout row="0" col="4">
+        <Label text="&#xf046;" class="fa"></Label>
+    </StackLayout> -->
+</GridLayout>

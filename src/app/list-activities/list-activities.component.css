@@ -1,0 +1,65 @@
+/* Add mobile styles for the component here.  */
+.calendarIcon {
+    font-size: 20;
+    padding-right: 10;
+    vertical-align: middle;
+}
+
+.activityCard {
+    margin-top: 0;
+    margin-bottom: 5;
+    background-color: white; 
+    height: auto;
+    width: 100%;
+    border-radius: 0;
+    
+}
+
+.descriptionGrid {
+    padding: 7;
+}
+
+.title {
+    color: black;
+    font-size: 15;
+    margin: 0;
+    padding-top: 10;
+    border-style: solid #646363 1;
+    padding-bottom: 0;
+}
+
+.dates {
+    color: #7B7A7A;
+    font-size: 13;
+    margin: 0; 
+    padding-top: 0; 
+}
+
+.title, .dates {
+    padding-left: 10;
+}
+
+.imageActivity {
+    width: 100%;
+    height: 100%;
+}
+
+.C-state {
+    color: #646363;
+}
+
+.D-state {
+    color: #FF317B;
+}
+
+.F-state { 
+    display: none;
+    color: transparent;
+}
+
+.imageurl {
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 150px;
+}
