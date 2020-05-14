@@ -27,7 +27,7 @@ export class imagesModalComponent implements OnInit {
     constructor(private _ModalParam: ModalDialogParams) { }
 
     ngOnInit(): void {
-        this.images = JSON.parse(this._ModalParam.context.data);
+        this.images = <string[]>this._ModalParam.context.data;
     }
 
     close() {

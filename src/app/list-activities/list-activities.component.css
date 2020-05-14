@@ -56,3 +56,10 @@
     display: none;
     color: transparent;
 }
+
+.imageurl {
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 150px;
+}
