@@ -5,11 +5,12 @@ import { DetailService } from './../../service/details-activity.service';
 @Component({
   selector: 'ns-diary-activity',
   template: ` 
-    <GridLayout pageTransition="slide" rows="auto " columns="auto, *, auto"  class="activityCard">
-    <Image row="0" col="0" src="{{activity.images[0]}}" stretch="aspectFill" horizontalAlignment="left"  class="imageActivity"></Image>              
-        <Label text="{{activity.title}}" row="0" col="1" class="title R-regular" textWrap="true"></Label>
-        <Label text="{{ activity.dateStart  | date:'mediumDate' }} - {{ activity.dateEnd  | date:'mediumDate' }}" 
-        row="0" col="1" verticalAlignment="bottom" class="dates R-light" textWrap="true"></Label>
+    <GridLayout pageTransition="slide" rows="auto" columns="auto, *, auto"  class="activityCard">
+    <Image row="0" col="0" src="{{activity.images[0].link}}" stretch="aspectFill" horizontalAlignment="left"  class="imageActivity"></Image>              
+        <StackLayout row="0" col="1">
+        <Label text="{{activity.title}}" class="title R-regular" textWrap="true"></Label>
+        <Label text="{{ activity.dateStart  | date:'mediumDate' }} - {{ activity.dateEnd  | date:'mediumDate' }}"  verticalAlignment="bottom" class="dates R-light" textWrap="true"></Label>
+        </StackLayout>
         <button row="0" col="2" text="&#xf00d;" class="fa botonDelete" androidElevations="0" (tap)="DeleteActivity(activity)"></button>
     </GridLayout>
   `,
