@@ -3,7 +3,8 @@ import { Activity } from '~/models/activity.model';
 import { ObservableArray } from 'tns-core-modules/data/observable-array/observable-array';
 import { RadListView, LoadOnDemandListViewEventData } from 'nativescript-ui-listview';
 import { Observable } from 'tns-core-modules/ui/page/page';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
+import { listActivityService } from '~/service/list-activity.service';
 
 let LIST_ARRAY_ACTIVITIES: Activity[] = JSON.parse(`[
 	{
@@ -818,22 +819,23 @@ export class ListActivitiesComponent extends Observable implements OnInit {
 
 	private _sourceDataItems = new ObservableArray<Activity>();
 	constructor(
-		private pageRouter: ActivatedRoute
+		private pageRouter: ActivatedRoute,
+		private listService: listActivityService,
+		private router:Router
 	) {
 		super();
-		this.dataItems = new ObservableArray<Activity>();
-		this._sourceDataItems.push(LIST_ARRAY_ACTIVITIES);
-		this.addMoreItemsFromSource(5, null);
 		this.pageRouter.queryParams.subscribe((params: Activity[]) => {
 			params ? 
-			 this._sourceDataItems.push(params) : null;
+			 this.dataItems.push(params) : null;
 		});
 	}
  
-	ngOnInit(): void {
+	async ngOnInit() {
 		//agregar llenado del servicio
-		//this._sourceDataItems.push();
-		
+		(await this.listService.getDataSource()).subscribe((item: Activity[]) => {
+			this.dataItems = new ObservableArray<Activity>();
+			this.dataItems.push(item);
+		});
 	}
 
 	get dataItems(): ObservableArray<Activity> {
@@ -844,30 +846,41 @@ export class ListActivitiesComponent extends Observable implements OnInit {
 		this.set("_dataItems", value);
 	}
 
-	public addMoreItemsFromSource(chunkSize: number, listView: RadListView) {
+	onDetailActivity(item: Activity) {
+        let navigationExtras: NavigationExtras = {
+            queryParams: item
+        };
+        this.router.navigate(["detailsActivity"], navigationExtras);
+    }
 
-		let newItems = this._sourceDataItems.splice(0, chunkSize);
+    stateActivity(item: Activity) {
+        return item.state + '-state';
+    }
+/* 
+	public addMoreItemsFromSource(chunkSize: number, listView: RadListView, list: ObservableArray<Activity>) {
+
+		let newItems = list.splice(0, chunkSize);
 		this.dataItems.push(newItems);
 
 		if (listView) {
 			// Call the optimized function for on-demand loading finished.
 			// (with 0 because the ObservableArray has already
 			// notified about the inserted items)
-			listView.notifyAppendItemsOnDemandFinished(0, this._sourceDataItems.length === 0);
+			listView.notifyAppendItemsOnDemandFinished(0, list.length === 0);
 		}
 	}
 
-	public onLoadMoreItemsRequested(args: LoadOnDemandListViewEventData) {
+	public onLoadMoreItemsRequested(args: LoadOnDemandListViewEventData,list: ObservableArray<Activity>) {
 		const that = new WeakRef(this);
 		const listView: RadListView = args.object;
-		if (this._sourceDataItems.length > 0) {
+		if (list.length > 0) {
 			setTimeout(function () {
-				that.get().addMoreItemsFromSource(5, listView);
+				that.get().addMoreItemsFromSource(5, listView,list);
 			}, 0);
 			args.returnValue = true;
 		} else {
 			args.returnValue = false;
 			listView.notifyAppendItemsOnDemandFinished(0, true);
 		}
-	}
+	} */
 }

@@ -1,7 +1,8 @@
-<ns-action-bar></ns-action-bar>
+<ns-action-bar>
+</ns-action-bar>
 <StackLayout backgroundColor="#fff">
     <GridLayout rows="*,auto,auto,auto" columns="*,auto,auto " class="activityCard">
-        <Pager loaded="onPageLoaded" row="0" colSpan="3" [items]="activity.images" #pager selectedIndex="0"
+        <Pager loaded="onPageLoaded" row="0" colSpan="3" [items]="imagenes" #pager selectedIndex="0"
             class="pager">
             <ng-template let-i="index" let-item="item">
                 <Image [src]="item" width="100%" height="auto" stretch="aspectFill" class="imageActivity"></Image>

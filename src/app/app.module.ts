@@ -4,7 +4,6 @@ import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular"
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { ListActivitiesComponent } from './list-activities/list-activities.component';
-import { listItem } from "./list-activities/list-item.component";
 import { DetailsActivityComponent } from './details-activity/details-activity.component';
 import { PagerModule } from 'nativescript-pager/angular';
 import { imagesModalComponent } from "./modal-images/details-modal.component";
@@ -15,7 +14,7 @@ import { ActionBarComponent } from "./action-bar/action-bar.component";
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
 
 // Uncomment and add to NgModule imports if you need to use the HttpClient wrapper
-// import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
+ import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
 
 @NgModule({
     bootstrap: [
@@ -25,12 +24,12 @@ import { ActionBarComponent } from "./action-bar/action-bar.component";
         PagerModule,
         NativeScriptModule,
         AppRoutingModule,
-        NativeScriptUIListViewModule
+        NativeScriptUIListViewModule,
+        NativeScriptHttpClientModule
     ],
     declarations: [
         AppComponent,
         ListActivitiesComponent,
-        listItem,
         DetailsActivityComponent,
         imagesModalComponent,
         MapComponent,

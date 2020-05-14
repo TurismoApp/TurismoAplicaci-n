@@ -5,6 +5,10 @@ import { imagesModalComponent } from '../modal-images/details-modal.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { getString, setString } from 'tns-core-modules/application-settings';
 import { DetailService } from '~/service/details-activity.service';
+import { images } from '~/models/images.model';
+import { listActivityService } from '~/service/list-activity.service';
+import { ObservableArray } from 'tns-core-modules/data/observable-array/observable-array';
+import { RouterExtensions } from 'nativescript-angular/router';
 
 @Component({
   selector: 'ns-details-activity',
@@ -14,19 +18,29 @@ import { DetailService } from '~/service/details-activity.service';
 })
 export class DetailsActivityComponent implements OnInit {
   activity: Activity;
+  imagenes: string[] = [];
   listActivitySave: Activity[] = [];
+  id: number;
   constructor(private _ModalService: ModalDialogService,
     private _viewcontainer: ViewContainerRef,
-    private pageRoute: ActivatedRoute,
-    private navigation: Router) {
+    private pageRoute: ActivatedRoute, private routerExtensions: RouterExtensions,
+    private navigation: Router,
+    private listService: listActivityService) {
   }
 
-  ngOnInit(): void {
-    this.activity = new Activity();
+  async ngOnInit() {
     this.listActivitySave = DetailService.GetListActivity();
-    this.pageRoute.queryParams.subscribe((params: Activity) => {
-      this.activity = params
+    this.pageRoute.queryParams.subscribe(async (params: Activity) => {
+      this.activity = new Activity();
+      this.activity = params;
+      (await this.listService.getImages(params.id)).subscribe(images => {
+        this.imagenes = [];
+        images.forEach( item => {
+          this.imagenes.push(item.link);
+        });
+      });
     });
+    
   }
 
   SaveDetailActivity(activity: Activity) {
@@ -62,9 +76,13 @@ export class DetailsActivityComponent implements OnInit {
       viewContainerRef: this._viewcontainer,
       fullscreen: true,
       context: {
-        data: JSON.stringify(this.activity.images)
+        data: this.imagenes
       }
     };
     this._ModalService.showModal(imagesModalComponent, options);
+  }
+
+  goBack() {
+    this.routerExtensions.backToPreviousPage();
   }
 }
