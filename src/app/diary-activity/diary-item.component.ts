@@ -16,13 +16,14 @@ import { DetailService } from './../../service/details-activity.service';
   `,
   styleUrls: ['./diary-activity.component.css']
 })
-export class DiaryItem {
+export class DiaryItem implements OnInit{
 
   @Input() activity: Activity;
   constructor(private detailservice: DetailService) {
-
   }
 
+  ngOnInit() {
+  }
   DeleteActivity(activity: Activity) {
     DetailService.DeteleData(activity);
     this.detailservice.ActivityDelete.emit(DetailService.GetListActivity());

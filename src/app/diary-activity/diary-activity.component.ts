@@ -23,9 +23,9 @@ export class DiaryActivityComponent extends Observable implements OnInit {
     this._sourceDataItems = DetailService.GetListActivity();
     this.detailservice.ActivityDelete.subscribe(Response => {
       this.dataItems = DetailService.GetListActivity();
-      this._sourceDataItems = DetailService.GetListActivity();
+      this._sourceDataItems = DetailService.GetListActivity(); 
     });
-
+   
     this.addMoreItemsFromSource(5, null);
   }
 

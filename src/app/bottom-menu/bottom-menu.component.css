@@ -3,9 +3,13 @@ Label {
     padding: 0;
     font-size: 25;
     text-align: center;
-    color:#FF317B;
+    color:dimgray;
     border: 0;
     height: auto;
+}
+
+.active {
+    color: #FF317B;
 }
 
 .menuBottom {

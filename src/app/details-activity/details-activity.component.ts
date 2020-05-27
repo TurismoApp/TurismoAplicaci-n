@@ -9,6 +9,7 @@ import { images } from '~/models/images.model';
 import { listActivityService } from '~/service/list-activity.service';
 import { ObservableArray } from 'tns-core-modules/data/observable-array/observable-array';
 import { RouterExtensions } from 'nativescript-angular/router';
+import { elementAt } from 'rxjs/internal/operators';
 
 @Component({
   selector: 'ns-details-activity',
@@ -44,13 +45,15 @@ export class DetailsActivityComponent implements OnInit {
   }
 
   SaveDetailActivity(activity: Activity) {
+   for (let index = 0; index < this.imagenes.length; index++) {
+     activity.images[index] = {idActivity: activity.id, link: this.imagenes[index]};
+   }  
     if (this.listActivitySave.length > 0) {
       let isactivity = this.listActivitySave.find(item => item.id === this.activity.id);
       !isactivity ? this.listActivitySave.push(activity) : null;
     } else {
       this.listActivitySave.push(activity);
     }
-
     DetailService.SaveActivity(this.listActivitySave);
   }
 
