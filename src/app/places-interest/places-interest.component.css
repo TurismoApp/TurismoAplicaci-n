@@ -1,18 +1,3 @@
-/*
-
-
-
-.iconOption {
-	margin: 10;
-	padding: 0;
-	border-radius: 50%;
-	width: 50;
-	background-color: white;
-	font-size: 25;
-	color: #FF317B;
-	vertical-align: middle;
-}
-*/
 .imageActivity {
 	width: 1000;
 	transform: rotate(23deg);
@@ -36,10 +21,32 @@
 	margin: 0;
 }
 
+ 
+.iconActions{
+	margin-top: 35;
+}
+
+.iconOption {
+	margin: 0;
+	border-radius: 10%;
+	width: 50;
+	background-color: white;
+	font-size: 25;
+	color: #FF317B;
+	vertical-align: middle;
+}
+
 .descriptiontext{
 	padding-bottom: 0;
 	font-size: 16;
 	margin-top: 30;
 	padding-left: 5;
+	color:#000;
+}
+
+.titleicons{
+	font-size: 16;
+	margin-top: 90;
+	text-align: center;
 	color:#000;
 }
