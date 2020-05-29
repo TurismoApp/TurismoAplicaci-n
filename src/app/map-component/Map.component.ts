@@ -619,7 +619,7 @@ export class MapComponent implements OnInit {
 	@ViewChild('mapbox', { static: true }) mapBox: any;
 	public sourcePoints: ubications[] = [];
 	markersData: any[] = [];
-	public savePosition: boolean = false;
+	public savePosition: boolean = true;
 	constructor(
 		private pageRouter: ActivatedRoute,
 		private pageLink: PageRoute
@@ -646,6 +646,7 @@ export class MapComponent implements OnInit {
 		var nativeMapView = args.ios ? args.ios : args.android;
 		//console.log("Mapbox onMapReady for " + (args.ios ? "iOS" : "Android") + ", native object received: " + nativeMapView);
 		// .. or use the convenience methods exposed on args.map, for instance:
+		console.log(this.savePosition);
 		this.savePosition ?
 			args.map.showUserLocation = true :
 			args.map.addMarkers(this.markersData);
