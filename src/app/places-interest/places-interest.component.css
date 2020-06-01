@@ -1,6 +1,7 @@
 .imageActivity {
 	width: 1000;
 	transform: rotate(23deg);
+	border-radius: 4;
 	margin-top: -100;
 	margin-left: -250;
 } 
@@ -13,7 +14,7 @@
 }
 
 .title {
-	color: #000;
+	color:#FF317B;
 	font-size: 26;
 	margin-top: 0;
 	padding-bottom: 0;
