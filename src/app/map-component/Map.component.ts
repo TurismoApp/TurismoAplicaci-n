@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { PageRoute } from 'nativescript-angular/router';
 import { switchMap } from "rxjs/internal/operators";
 import { ubicationService } from '~/service/ubication.service';
+import { place } from '~/models/place.model';
+import { placeService } from '~/service/place.service';
 
 const ALL_UBICATIONS: ubications[] = JSON.parse(`[
 	{
@@ -618,20 +620,26 @@ export class MapComponent implements OnInit {
 
 	@ViewChild('mapbox', { static: true }) mapBox: any;
 	public sourcePoints: ubications[] = [];
+	public placePoints: place[] = [];
 	markersData: any[] = [];
-	public savePosition: boolean = true;
+	idStablish: number = 0;
+	public savePosition: boolean = false;
 	constructor(
 		private pageRouter: ActivatedRoute,
-		private pageLink: PageRoute
+		private pageLink: PageRoute,
+		private placeservice: placeService
 	) {
 		this.pageLink.activatedRoute.pipe(switchMap(activatedRoute => activatedRoute.params)).
 			forEach((params) => {
+				this.idStablish = params["id"];
 				this.savePosition = params["savePosition"];
 			});
 		this.pageRouter.queryParams.subscribe((params: ubications[]) => {
 			params ?
 				this.sourcePoints = params : null;
 		});
+
+
 	}
 
 	ngOnInit() {
@@ -646,12 +654,20 @@ export class MapComponent implements OnInit {
 		var nativeMapView = args.ios ? args.ios : args.android;
 		//console.log("Mapbox onMapReady for " + (args.ios ? "iOS" : "Android") + ", native object received: " + nativeMapView);
 		// .. or use the convenience methods exposed on args.map, for instance:
-		console.log(this.savePosition);
-		this.savePosition ?
-			args.map.showUserLocation = true :
-			args.map.addMarkers(this.markersData);
+		if (this.idStablish > 0) {
+			this.markersData = [];
+			this.placeservice.getPlace(this.idStablish).subscribe(data => {
+				data.forEach(element => {
+					this.markersData.push(this.mapMarkersPlaces(element.ubications, element.name, element.direction))
+				});
+				args.map.addMarkers(this.markersData);
+			});
+		} else {
+			this.savePosition ?
+				args.map.showUserLocation = true :
+				args.map.addMarkers(this.markersData);
+		}
 	}
-
 	setViewToCity() {
 		this.mapBox.setViewport({
 			bounds: {
@@ -667,40 +683,40 @@ export class MapComponent implements OnInit {
 	saveYourPosition() {
 		this.mapBox.getUserLocation().then(
 			function (userLocation: any) {
-				ubicationService.saveActualPosition({ 
-					idActivity: null, 
-					latitude: userLocation.location.lat, 
-					longitude: userLocation.location.lng 
+				ubicationService.saveActualPosition({
+					idActivity: null,
+					latitude: userLocation.location.lat,
+					longitude: userLocation.location.lng
 				});
 			}
 		);
 	}
 
 	seeHogar() {
-		if(ubicationService.getActualPosition() != null) {
-		this.mapBox.removeMarkers();
-		this.mapBox.addMarkers([{
-			lat: ubicationService.getActualPosition().latitude,
-			lng: ubicationService.getActualPosition().longitude,
-			title: "Hogar",
-			subtitle: "este es tu lugar de residencia actual, para cambiarlo presiona guardar",
-			icon: 'res://mapmarker',
-			selected: true, // es the callout show immediately when the marker is added (note: only 1 marker can be selected at a time)
-			onCalloutTap: function () { console.log("'Nice location' marker callout tapped"); }
-		}]);
-		this.mapBox.animateCamera({
-			// this is where we animate to
-			target: {
+		if (ubicationService.getActualPosition() != null) {
+			this.mapBox.removeMarkers();
+			this.mapBox.addMarkers([{
 				lat: ubicationService.getActualPosition().latitude,
-				lng: ubicationService.getActualPosition().longitude
-			},
-			zoomLevel: 18, // Android
-			altitude: 0, // iOS (meters from the ground)
-			bearing: 0, // Where the camera is pointing, 0-360 (degrees)
-			tilt: 10,
-			duration: 5000 // default 10000 (milliseconds)
-		});
-	
+				lng: ubicationService.getActualPosition().longitude,
+				title: "Hogar",
+				subtitle: "este es tu lugar de residencia actual, para cambiarlo presiona guardar",
+				icon: 'res://mapmarker',
+				selected: true, // es the callout show immediately when the marker is added (note: only 1 marker can be selected at a time)
+				onCalloutTap: function () { console.log("'Nice location' marker callout tapped"); }
+			}]);
+			this.mapBox.animateCamera({
+				// this is where we animate to
+				target: {
+					lat: ubicationService.getActualPosition().latitude,
+					lng: ubicationService.getActualPosition().longitude
+				},
+				zoomLevel: 18, // Android
+				altitude: 0, // iOS (meters from the ground)
+				bearing: 0, // Where the camera is pointing, 0-360 (degrees)
+				tilt: 10,
+				duration: 5000 // default 10000 (milliseconds)
+			});
+
 		} else alert("No tienes tu hogar marcado");
 	}
 	mapMarkersUbications(ubication: ubications) {
@@ -709,6 +725,17 @@ export class MapComponent implements OnInit {
 			lng: ubication.longitude,
 			title: ubication.idActivity.toString(),
 			subtitle: ubication.id.toString(),
+			icon: 'res://mapmarker',
+			selected: true, // es the callout show immediately when the marker is added (note: only 1 marker can be selected at a time)
+			onCalloutTap: function () { console.log("'Nice location' marker callout tapped"); }
+		}
+	}
+	mapMarkersPlaces(ubication: ubications, title: string, subtitle: string) {
+		return {
+			lat: ubication.latitude,
+			lng: ubication.longitude,
+			title: title,
+			subtitle: subtitle,
 			icon: 'res://mapmarker',
 			selected: true, // es the callout show immediately when the marker is added (note: only 1 marker can be selected at a time)
 			onCalloutTap: function () { console.log("'Nice location' marker callout tapped"); }

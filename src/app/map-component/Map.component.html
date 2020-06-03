@@ -13,15 +13,14 @@
     <GridLayout rows="*, *, *" columns="*,*,*,*">
         <StackLayout *ngIf="savePosition" class="mapButtons" col="3" row="0">
             <Label class="R-regular" text="Guardar"></Label>
-            <Button  text="&#xf004;" (tap)="saveYourPosition()" class="fa savePosition"></Button>
+            <Button text="&#xf004;" (tap)="saveYourPosition()" class="fa savePosition"></Button>
         </StackLayout>
         <StackLayout *ngIf="savePosition" class="mapButtons" col="3" row="1">
             <Label class="R-regular" text="Hogar"></Label>
-            <Button  text="&#xf041;" (tap)="seeHogar()"
-                class="fa savePosition"></Button>
-           
+            <Button text="&#xf041;" (tap)="seeHogar()" class="fa savePosition"></Button>
+
         </StackLayout>
-        <StackLayout  class="mapButtons" col="3" row="2">
+        <StackLayout class="mapButtons" col="3" row="2">
             <Label class="R-regular" text="Todo"></Label>
             <Button text="&#xf05b;" (tap)="setViewToCity()" class="fa buttons"></Button>
         </StackLayout>
