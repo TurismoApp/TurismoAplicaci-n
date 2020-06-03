@@ -12,8 +12,9 @@ import { DiaryActivityComponent } from './diary-activity/diary-activity.componen
 import { MapComponent } from "./map-component/Map.component";
 import { BottomMenuComponent } from "./bottom-menu/bottom-menu.component";
 import { ActionBarComponent } from "./action-bar/action-bar.component";
+import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angular";
 // Uncomment and add to NgModule imports if you need to use two-way binding
-// import { NativeScriptFormsModule } from "nativescript-angular/forms";
+import { NativeScriptFormsModule } from "nativescript-angular/forms";
 
 // Uncomment and add to NgModule imports if you need to use the HttpClient wrapper
  import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
@@ -27,7 +28,8 @@ import { ActionBarComponent } from "./action-bar/action-bar.component";
         NativeScriptModule,
         AppRoutingModule,
         NativeScriptUIListViewModule,
-        NativeScriptHttpClientModule
+        NativeScriptHttpClientModule,
+        NativeScriptFormsModule
     ],
     declarations: [
         AppComponent,

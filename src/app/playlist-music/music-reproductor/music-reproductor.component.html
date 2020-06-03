@@ -1,0 +1,19 @@
+<StackLayout class="dialogStyle">
+    <GridLayout rows="auto,*,auto,auto" columns="*" width="100%" height="100%">
+        <GridLayout  col="0" row="0" rows="*" columns="*, auto" width="100%">
+            <Label text="Powered by Deezer" col="0" row="0" class="R-regular Deezzer"  textWrap="true"></Label>
+            <Button text="&#xf00d;" (tap)="close()" class="fa exit" width="50" androidElevation="0" row="0" col="1" ></Button>
+        </GridLayout> 
+        <GridLayout rows="*, auto" columns="*" row="1" col="0">
+            <StackLayout row="0" col="0" class="imageCont" width="auto" height="50%">
+                <Image stretch="aspectFill" androidElevation="5" class="image" [src]="image"></Image>
+            </StackLayout>
+            <label row="1" col="0" text="{{title}}" textWrap="true" class="title"></label>
+        </GridLayout>
+        <GridLayout width="100%" class="btn-reproduction" rows="*" columns="*,*,*,*,*" row="2" col="0">   
+            <Label text="&#xf048;" row="0" col="1" class="fa btn-move" (tap)="back()"></Label>
+            <Label text="{{playerSong.state === true ? '&#xf04c;' : '&#xf04b;'}}" row="0" col="2" class="fa btn-play" (tap)="play()"></Label>
+            <Label text="&#xf051;" row="0" col="3" class="fa btn-move" (tap)="next()"></Label>
+        </GridLayout>
+    </GridLayout>
+</StackLayout>

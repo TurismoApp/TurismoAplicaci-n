@@ -1,0 +1,78 @@
+.itemTextSong {
+   padding-left: 5;
+}
+
+.titleSong {
+    font-size: 18;
+    color: black;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.durationSong {
+    padding-top: 0;
+    font-size: 15;
+    color: black;
+    margin-top: 0;
+}
+
+.templateArtist {
+    margin-left: 7;
+    border-radius:50%;
+}
+
+.Top-c {
+    margin: 0;
+}
+
+.title {
+    font-size: 20;
+    padding-left: 7;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.subtitle {
+    font-size: 15;
+    padding-left: 7;
+    padding-bottom: 20;
+}
+
+.imageSong {
+    border-radius: 15%;
+    width: 100%;
+}
+
+.sideTitleStackLayout {
+    background-color: #FF317B;
+}
+
+.sideStackLayout, .sideTitleStackLayout {
+    border-top-left-radius: 25%;
+    border-top-right-radius: 25%
+}
+
+.sideStackLayout {
+    padding-top: 0;
+}
+
+.titleOfSelection {
+    margin-top: 5;
+    padding-left: 10;
+    font-size: 15;
+    vertical-align: middle;
+}
+
+.titleSong, .durationSong {
+    padding: 0;
+    margin: 0;
+}
+
+.titleSong {
+    font-size: 15;
+}
+
+.exit {
+    font-size: 25;
+    vertical-align: middle;
+}
