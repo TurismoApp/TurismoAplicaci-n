@@ -1,4 +1,4 @@
-<GridLayout class="menuBottom" rows="auto" columns="*,*,*,*" height="50" width="auto">
+<GridLayout class="menuBottom" rows="auto" columns="*,*,*,*,*" height="50" width="auto">
     <StackLayout (tap)="menuDirections('listActivity')" class="menuItem" row="0" col="0">
         <StackLayout class="menuButton">
             <Label text="&#xf046;" class="fa icon" [ngClass]="{active: menu === 'listActivity'}"></Label>
@@ -8,7 +8,6 @@
     <StackLayout (tap)="menuDirections('diaryActivity')" class="menuItem" row="0" col="1">
         <StackLayout class="menuButton">
             <Label text="&#xf02d;" class="fa icon" [ngClass]="{active: menu === 'diaryActivity'}"></Label>
-            <label text="actividades" class="R-regular textmenu"></label>
         </StackLayout>
     </StackLayout>
 
@@ -24,6 +23,11 @@
         </StackLayout>
     </StackLayout>
 
+    <StackLayout (tap)="menuDirections('playList')" class="menuItem" row="0" col="4">
+        <StackLayout class="menuButton">
+            <Label text="&#xf001;" class="fa icon" [ngClass]="{active: menu === 'playList'}"></Label>
+        </StackLayout>
+    </StackLayout>
     <!-- <StackLayout row="0" col="4">
         <Label text="&#xf046;" class="fa"></Label>
     </StackLayout> -->

@@ -13,7 +13,8 @@ const routes: Routes = [
     { path: "detailsActivity", component: DetailsActivityComponent },
     { path: "mapComponent", component: MapComponent },
     { path: "mapComponent/:savePosition", component: MapComponent },
-    { path: "diaryActivity", component: DiaryActivityComponent }
+    { path: "diaryActivity", component: DiaryActivityComponent },
+    { path: "playList", loadChildren: () => import('./playlist-music/playlist.module').then(m => m.playListModule) }
 ];
 
 @NgModule({
