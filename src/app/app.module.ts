@@ -28,7 +28,7 @@ import { NativeScriptFormsModule } from "nativescript-angular/forms";
         PagerModule,
         NativeScriptModule,
         AppRoutingModule,
-        NativeScriptFormsModule
+        NativeScriptFormsModule,
         NativeScriptHttpClientModule,
         NativeScriptUIListViewModule,
     ],

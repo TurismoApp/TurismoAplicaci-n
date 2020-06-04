@@ -12,10 +12,10 @@ const routes: Routes = [
     { path: "listActivity", component: ListActivitiesComponent },
     { path: "detailsActivity", component: DetailsActivityComponent },
     { path: "mapComponent", component: MapComponent },
-    { path: "mapComponent/:id", component: MapComponent },
+    { path: "mapComponent/places/:id", component: MapComponent },
     { path: "mapComponent/:savePosition", component: MapComponent },
     { path: "diaryActivity", component: DiaryActivityComponent },
-    { path: "places", component: PlacesInterestComponent }
+    { path: "places", component: PlacesInterestComponent },
     { path: "playList", loadChildren: () => import('./playlist-music/playlist.module').then(m => m.playListModule) }
 ];
 

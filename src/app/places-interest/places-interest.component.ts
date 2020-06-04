@@ -18,7 +18,7 @@ export class PlacesInterestComponent implements OnInit {
   }
 
   UbicationsPlace(placetype: typePlace) {
-    this.navigation.navigateByUrl("/mapComponent/" + placetype);
+    this.navigation.navigateByUrl("/mapComponent/places/" + placetype);
   }
 
 }
