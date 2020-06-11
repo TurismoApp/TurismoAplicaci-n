@@ -8,7 +8,7 @@
             </GridLayout> 
         </StackLayout>
         <StackLayout row="1" col="0" height="100%" orientation="vertical">
-                <ListView [items]="source" class="list-group" height="100%" (itemTap)="onItemTap($event)">
+                <ListView [items]="source" class="list-group" height="100%" (itemTap)="onItemTap($event)" separateColor="transparent">
                     <ng-template let-item="item" let-odd="odd" let-even="even">
                         <StackLayout height="25">
                             <Label [text]="item.title" class="R-regular titleSong"></Label>

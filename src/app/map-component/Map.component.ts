@@ -623,16 +623,19 @@ export class MapComponent implements OnInit {
 	public placePoints: place[] = [];
 	markersData: any[] = [];
 	idStablish: number = 0;
+	idActivity: number = null;
 	public savePosition: boolean = false;
 	constructor(
 		private pageRouter: ActivatedRoute,
 		private pageLink: PageRoute,
-		private placeservice: placeService
+		private placeservice: placeService,
+		private ubicationService: ubicationService 
 	) {
 		this.pageLink.activatedRoute.pipe(switchMap(activatedRoute => activatedRoute.params)).
 			forEach((params) => {
 				this.idStablish = params["id"];
 				this.savePosition = params["savePosition"];
+				this.idActivity = params["activityId"];
 			});
 		this.pageRouter.queryParams.subscribe((params: ubications[]) => {
 			params ?
@@ -642,10 +645,14 @@ export class MapComponent implements OnInit {
 
 	}
 
-	ngOnInit() {
-		ALL_UBICATIONS.forEach(item => {
-			this.markersData.push(this.mapMarkersUbications(item));
-		});
+	async ngOnInit() {
+		if(this.idActivity != null) {
+			(await this.ubicationService.getUbicationActivity(this.idActivity)).subscribe((Response: ubications[]) => {
+				Response.forEach(item => {
+					this.markersData.push(this.mapMarkersUbications(item));
+				})
+			});
+		}
 	}
 
 	onMapReady(args: any) {
@@ -720,11 +727,13 @@ export class MapComponent implements OnInit {
 		} else alert("No tienes tu hogar marcado");
 	}
 	mapMarkersUbications(ubication: ubications) {
+		let title = ubication.inplace != null ? ubication.inplace.name : ubication.activityOwner.title;
+		let subtitle = ubication.inplace != null ? ubication.inplace.description : ubication.activityOwner.description;
 		return {
 			lat: ubication.latitude,
 			lng: ubication.longitude,
-			title: ubication.idActivity.toString(),
-			subtitle: ubication.id.toString(),
+			title: title,
+			subtitle: subtitle,
 			icon: 'res://mapmarker',
 			selected: true, // es the callout show immediately when the marker is added (note: only 1 marker can be selected at a time)
 			onCalloutTap: function () { console.log("'Nice location' marker callout tapped"); }
