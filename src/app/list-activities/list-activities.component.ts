@@ -40,13 +40,8 @@ export class ListActivitiesComponent extends Observable implements OnInit {
 	}
 
 	async ngOnInit() {
-		if (this.idActivity == null) {
-			await this.listService.getDataSource();
-			this.dataItems = new ObservableArray<Activity>();
-			this.dataItems.push(await this.listService.getListActivities());
-		}
-		else {
-			(await this.listService.getChronograms(this.idActivity)).subscribe((Response: shcedules[]) => {
+		if (this.idActivity != null) {
+			(await this.listService.getChronograms(this.idActivity)).subscribe(async (Response: shcedules[]) => {
 				if (Response.length > 0) {
 					this.dataChronogram = new ObservableArray<Activity>();
 					this.schedulesActivitys = [];
@@ -54,8 +49,14 @@ export class ListActivitiesComponent extends Observable implements OnInit {
 						this.schedulesActivitys.push(item.activityChild);
 					});
 					this.dataChronogram.push(this.schedulesActivitys);
+				} else {
+					this.alertMessage('Mensaje','Esta actividad no contiene otras actividades asociadas','OK');
+					this.getDataSourceList();
 				}
 			});
+		}
+		else {
+			this.getDataSourceList();
 		}
 	}
 
@@ -86,7 +87,18 @@ export class ListActivitiesComponent extends Observable implements OnInit {
 		return item.state + '-state';
 	}
 
-	private saveDataInLocalStorage(message: MessageEvent) {
-		console.log(message);
+	private async getDataSourceList() {
+		await this.listService.getDataSource();
+		this.dataItems = new ObservableArray<Activity>();
+		this.dataItems.push(await this.listService.getListActivities());
+	}
+
+	private alertMessage(title: string, message: string, buttonText: string) {
+		let options = {
+			title: title,
+			message: message,
+			okButtonText: buttonText
+		};
+		alert(options);
 	}
 }

@@ -16,7 +16,7 @@
         <!--  <ns-list-item [activity]="item"></ns-list-item> -->
     </ng-template>
 </RadListView>
-<RadListView #listViewChronograms *ngIf="idActivity != null" [items]="dataChronogram" loadOnDemandMode="Auto" backgroundColor="white">
+<RadListView #listViewChronograms *ngIf="idActivity != null" [items]="dataChronogram" backgroundColor="white">
     <ng-template let-item="item">
         <GridLayout pageTransition="slide" rows="*,auto" columns="*" class="activityCard" (tap)="onDetailActivity(item)">
             <Image row="0" class="imageurl" col="0" [src]="item.images[0].link" Width="100%" height="auto" loadMode="async" stretch="aspectFit" class="imageActivity"></Image>
