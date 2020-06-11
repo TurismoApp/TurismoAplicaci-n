@@ -10,6 +10,7 @@ import { PlacesInterestComponent } from './places-interest/places-interest.compo
 const routes: Routes = [
     { path: "", redirectTo: "listActivity", pathMatch: "full" },
     { path: "listActivity", component: ListActivitiesComponent },
+    { path: "listActivity/Chronograms/:Id", component: ListActivitiesComponent },
     { path: "detailsActivity", component: DetailsActivityComponent },
     { path: "mapComponent", component: MapComponent },
     { path: "mapComponent/places/:id", component: MapComponent },
