@@ -6,9 +6,9 @@ import { NavigationExtras, Router } from '@angular/router';
 @Component({
   selector: 'ns-diary-activity',
   template: ` 
-    <GridLayout pageTransition="slide" rows="auto" columns="auto, *, auto"  class="activityCard" (tap)="itemTap(activity)" >
-    <Image row="0" col="0" src="{{activity.images[0].link}}" stretch="aspectFill" horizontalAlignment="left"  class="imageActivity"></Image>              
-        <StackLayout row="0" col="1">
+    <GridLayout pageTransition="slide" rows="auto" columns="auto, *, auto"  class="activityCard"  >
+    <Image row="0" col="0" src="{{activity.images[0].link}}" stretch="aspectFill" horizontalAlignment="left"  class="imageActivity" (tap)="itemTap(activity)"></Image>              
+        <StackLayout row="0" col="1" (tap)="itemTap(activity)">
         <Label text="{{activity.title}}" class="title R-regular" textWrap="true"></Label>
         <Label text="{{ activity.dateStart  | date:'mediumDate' }} - {{ activity.dateEnd  | date:'mediumDate' }}"  verticalAlignment="bottom" class="dates R-light" textWrap="true"></Label>
         </StackLayout>
