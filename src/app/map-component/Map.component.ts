@@ -730,6 +730,7 @@ export class MapComponent implements OnInit {
 			onCalloutTap: function () { console.log("'Nice location' marker callout tapped"); }
 		}
 	}
+	
 	mapMarkersPlaces(ubication: ubications, title: string, subtitle: string) {
 		return {
 			lat: ubication.latitude,

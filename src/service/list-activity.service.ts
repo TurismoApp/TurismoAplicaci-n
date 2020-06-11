@@ -6,7 +6,8 @@ import { images } from "~/models/images.model";
 import * as appSettings from "tns-core-modules/application-settings";
 
 const get = '/activitys';
-const getImages = '/images/activity/'
+const getImages = '/images/activity/';
+const getChro = '/schedules/Chronogram/';
 @Injectable({
     providedIn: 'root'
 })
@@ -32,4 +33,7 @@ export class listActivityService {
         return list != null ? <Activity[]>JSON.parse(list) : [];
     }
 
+    async getChronograms( id: number) {
+        return this.httpClient.get(host + getChro + id);
+    }
 }

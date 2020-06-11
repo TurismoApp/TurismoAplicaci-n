@@ -74,6 +74,10 @@ export class DetailsActivityComponent implements OnInit {
     this.navigation.navigateByUrl("/mapComponent");
   }
 
+  seeChronograms(activity: Activity) {
+    this.navigation.navigateByUrl("/listActivity/Chronograms/" + activity.id);  
+  }
+
   ShowModal() {
     const options: ModalDialogOptions = {
       viewContainerRef: this._viewcontainer,
