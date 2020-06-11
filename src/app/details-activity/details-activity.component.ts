@@ -71,7 +71,7 @@ export class DetailsActivityComponent implements OnInit {
   }
 
   seeUbications(activity: Activity) {
-    this.navigation.navigateByUrl("/mapComponent");
+    this.navigation.navigateByUrl("mapComponent/ubicationActivity/" + activity.id);
   }
 
   seeChronograms(activity: Activity) {
