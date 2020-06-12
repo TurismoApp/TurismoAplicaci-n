@@ -19,6 +19,7 @@ import { NativeScriptFormsModule } from "nativescript-angular/forms";
 
 // Uncomment and add to NgModule imports if you need to use the HttpClient wrapper
  import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
+import { NotificationActivityComponent } from './notification-activity/notification-activity.component';
 
 @NgModule({
     bootstrap: [
@@ -42,7 +43,8 @@ import { NativeScriptFormsModule } from "nativescript-angular/forms";
         MapComponent,
         BottomMenuComponent,
         ActionBarComponent,
-        PlacesInterestComponent
+        PlacesInterestComponent,
+        NotificationActivityComponent
     ],
     entryComponents: [imagesModalComponent],
     providers: [],
