@@ -9,7 +9,10 @@ import { images } from '~/models/images.model';
 import { listActivityService } from '~/service/list-activity.service';
 import { ObservableArray } from 'tns-core-modules/data/observable-array/observable-array';
 import { RouterExtensions } from 'nativescript-angular/router';
-import { elementAt } from 'rxjs/internal/operators';
+
+import { NotificationService } from '~/service/notification.service';
+import { LocalNotifications } from "nativescript-local-notifications";
+
 
 @Component({
   selector: 'ns-details-activity',
@@ -36,18 +39,18 @@ export class DetailsActivityComponent implements OnInit {
       this.activity = params;
       (await this.listService.getImages(params.id)).subscribe(images => {
         this.imagenes = [];
-        images.forEach( item => {
+        images.forEach(item => {
           this.imagenes.push(item.link);
         });
       });
     });
-    
+
   }
 
-  SaveDetailActivity(activity: Activity) {
-   for (let index = 0; index < this.imagenes.length; index++) {
-     activity.images[index] = {idActivity: activity.id, link: this.imagenes[index]};
-   }  
+  async SaveDetailActivity(activity: Activity) {
+    for (let index = 0; index < this.imagenes.length; index++) {
+      activity.images[index] = { idActivity: activity.id, link: this.imagenes[index] };
+    }
     if (this.listActivitySave.length > 0) {
       let isactivity = this.listActivitySave.find(item => item.id === this.activity.id);
       !isactivity ? this.listActivitySave.push(activity) : null;
@@ -55,14 +58,16 @@ export class DetailsActivityComponent implements OnInit {
       this.listActivitySave.push(activity);
     }
     DetailService.SaveActivity(this.listActivitySave);
+    await NotificationService.GenerateShedules();
   }
 
   validateState(activity: Activity) {
     return DetailService.ValidateStateActivity(activity, this.listActivitySave);
   }
 
-  DeleteState(activity: Activity) {
+  async DeleteState(activity: Activity) {
     DetailService.DeleteActivity(activity, this.listActivitySave);
+    await NotificationService.GenerateShedules();
   }
 
   ActivityState(activity: Activity) {

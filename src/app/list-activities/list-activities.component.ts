@@ -4,7 +4,8 @@ import { ObservableArray } from 'tns-core-modules/data/observable-array/observab
 import { Observable } from 'tns-core-modules/ui/page/page';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { listActivityService } from '~/service/list-activity.service';
-
+import { NotificationService } from '~/service/notification.service';
+import { LocalNotifications } from "nativescript-local-notifications";
 
 @Component({
 	selector: 'ns-list-activities',
@@ -13,26 +14,28 @@ import { listActivityService } from '~/service/list-activity.service';
 })
 
 export class ListActivitiesComponent extends Observable implements OnInit {
-
+	listShedules: Activity[] = [];
 
 	private _sourceDataItems = new ObservableArray<Activity>();
 	constructor(
 		private pageRouter: ActivatedRoute,
 		private listService: listActivityService,
-		private router:Router,
+		private router: Router,
 	) {
 		super();
 		this.pageRouter.queryParams.subscribe((params: Activity[]) => {
 			this.dataItems = new ObservableArray<Activity>();
-			params ? 
-			 this.dataItems.push(params) : null;
+			params ?
+				this.dataItems.push(params) : null;
 		});
 	}
- 
+
 	async ngOnInit() {
 		await this.listService.getDataSource();
 		this.dataItems = new ObservableArray<Activity>();
 		this.dataItems.push(await this.listService.getListActivities());
+
+
 	}
 
 	get dataItems(): ObservableArray<Activity> {
@@ -44,17 +47,18 @@ export class ListActivitiesComponent extends Observable implements OnInit {
 	}
 
 	onDetailActivity(item: Activity) {
-        let navigationExtras: NavigationExtras = {
-            queryParams: item
-        };
-        this.router.navigate(["detailsActivity"], navigationExtras);
-    }
+		let navigationExtras: NavigationExtras = {
+			queryParams: item
+		};
+		this.router.navigate(["detailsActivity"], navigationExtras);
+	}
 
-    stateActivity(item: Activity) {
-        return item.state + '-state';
-    }
+	stateActivity(item: Activity) {
+		return item.state + '-state';
+	}
 
 	private saveDataInLocalStorage(message: MessageEvent) {
 		console.log(message);
 	}
+
 }

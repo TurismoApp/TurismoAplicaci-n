@@ -6,12 +6,10 @@ import { DetailsActivityComponent } from "./details-activity/details-activity.co
 import { MapComponent } from "./map-component/Map.component";
 import { DiaryActivityComponent } from "./diary-activity/diary-activity.component";
 import { PlacesInterestComponent } from './places-interest/places-interest.component';
-import { NotificationActivityComponent } from "./notification-activity/notification-activity.component";
 
 const routes: Routes = [
-    { path: "", redirectTo: "notifications", pathMatch: "full" },
+    { path: "", redirectTo: "listActivity", pathMatch: "full" },
     { path: "listActivity", component: ListActivitiesComponent },
-    { path: "notifications", component: NotificationActivityComponent },
     { path: "detailsActivity", component: DetailsActivityComponent },
     { path: "mapComponent", component: MapComponent },
     { path: "mapComponent/places/:id", component: MapComponent },

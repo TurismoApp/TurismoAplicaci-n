@@ -18,8 +18,8 @@ import { PlacesInterestComponent } from "./places-interest/places-interest.compo
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
 
 // Uncomment and add to NgModule imports if you need to use the HttpClient wrapper
- import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
-import { NotificationActivityComponent } from './notification-activity/notification-activity.component';
+import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
+
 
 @NgModule({
     bootstrap: [
@@ -44,7 +44,6 @@ import { NotificationActivityComponent } from './notification-activity/notificat
         BottomMenuComponent,
         ActionBarComponent,
         PlacesInterestComponent,
-        NotificationActivityComponent
     ],
     entryComponents: [imagesModalComponent],
     providers: [],
