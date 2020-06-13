@@ -1,0 +1,33 @@
+{
+    "app.name": "Yucapp",
+    "playlist": {
+        "bar": "Yucapp music",
+        "topSongs": "Top Songs",
+        "detailTopSongs": "The most listened songs of the genre Vallenato",
+        "topAlbums": "Top Albums",
+        "detailTopAlbums": "The most popular albums",
+        "topArtist": "Top Artists",
+        "detailTopArtist": "Fashion artists"
+    },
+    "detail": {
+        "description": "Description"
+    },
+    "map": {
+        "save": "Save",
+        "home": "Home",
+        "every": "Everything"
+    },
+    "imageModal": {
+        "title": "Images"
+    },
+    "places": {
+        "title": "Places",
+        "subtitle": "Find places of your liking",
+        "restaurant": "Restaurant",
+        "library": "Library",
+        "hospital": "Hospital",
+        "hotels": "Hotels",
+        "pubs": "Bars",
+        "recreation": "Recreation"
+    }
+}

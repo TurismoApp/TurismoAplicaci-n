@@ -21,8 +21,8 @@
     <ScrollView tkMainContent height="auto">
         <GridLayout rows="*, *, *" columns="*" height="auto">
             <StackLayout class="Top-c" row="0" col="0" height="380">
-                <Label text="Top Canciones" class="R-black title"></Label>
-                <Label text="las canciones mas escuchadas del genero Vallenato" textWrap="true"
+                <Label text="{{'playlist.topSongs' | L }}" class="R-black title"></Label>
+                <Label text="{{'playlist.detailTopSongs' | L }}" textWrap="true"
                     class="R-regular subtitle" color="dimgray"></Label>
                 <ScrollView orientation="horizontal" scrollBarIndicatorVisible="false">
                     <StackLayout orientation="horizontal" height="300">
@@ -46,8 +46,8 @@
                 </ScrollView>
             </StackLayout>
             <StackLayout row="1" col="0" class="Top-c" height="380" backgroundColor="whitesmoke">
-                <Label text="Top Albumes" class="R-black title" color="#FF317B"></Label>
-                <Label text="Los albumes mas sonados" textWrap="true" class="R-regular subtitle"
+                <Label text="{{ 'playlist.topAlbums' | L }}" class="R-black title" color="#FF317B"></Label>
+                <Label text="{{ 'playlist.detailTopAlbums' | L }}" textWrap="true" class="R-regular subtitle"
                     color="dimgray"></Label>
                 <ScrollView orientation="horizontal" scrollBarIndicatorVisible="false">
                     <StackLayout orientation="horizontal" height="300">
@@ -71,8 +71,8 @@
                 </ScrollView>
             </StackLayout>
             <StackLayout row="2" col="0" class="Top-c" height="300" backgroundColor="white">
-                <Label text="Top Artistas" class="R-black title" color="#FF317B"></Label>
-                <Label text="los artistas de moda" textWrap="true" class="R-regular subtitle" color="dimgray"></Label>
+                <Label text="{{'playlist.topArtist'| L}}" class="R-black title" color="#FF317B"></Label>
+                <Label text="{{'playlist.detailTopArtist' | L}}" textWrap="true" class="R-regular subtitle" color="dimgray"></Label>
                 <ScrollView orientation="horizontal" scrollBarIndicatorVisible="false">
                     <StackLayout orientation="horizontal" height="300">
                         <StackLayout orientation="vertical" *ngFor="let item of topArtist">

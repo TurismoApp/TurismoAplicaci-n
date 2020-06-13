@@ -18,7 +18,8 @@ import { PlacesInterestComponent } from "./places-interest/places-interest.compo
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
 
 // Uncomment and add to NgModule imports if you need to use the HttpClient wrapper
- import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
+import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
+import { NativeScriptLocalizeModule } from "nativescript-localize/angular";
 
 @NgModule({
     bootstrap: [
@@ -31,6 +32,7 @@ import { NativeScriptFormsModule } from "nativescript-angular/forms";
         NativeScriptFormsModule,
         NativeScriptHttpClientModule,
         NativeScriptUIListViewModule,
+        NativeScriptLocalizeModule
     ],
     declarations: [
         AppComponent,

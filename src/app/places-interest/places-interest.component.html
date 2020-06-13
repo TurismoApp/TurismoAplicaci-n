@@ -4,30 +4,30 @@
         <GridLayout rows="*,auto,auto" columns="auto">
             <Image src="res://placesactivity" row="0" col="2" rowSpan="3" class="imageActivity">
             </Image>
-            <Label text="Lugares" row="1" col="0" textWrap="true" class="title B-Bold"></Label>
-            <Label text="Busca lugares de tu gusto" row="1" col="0" textWrap="true"
+            <Label text="{{'places.title' | L }}" row="1" col="0" textWrap="true" class="title B-Bold"></Label>
+            <Label text="{{'places.subtitle' | L }}" row="1" col="0" textWrap="true"
                 class="descriptiontext R-light"></Label>
         </GridLayout>
 
         <GridLayout row="3" rows="auto, auto, auto, auto" columns="*,*,*,*">
 
             <Button text="&#xf0f5;" row="0" col="0" class="fa iconOption" (tap)="UbicationsPlace(1)"></Button>
-            <Label text="Restaurante" row="0" col="0" textWrap="true" class="titleicons R-light"></Label>
+            <Label text="{{'places.restaurant' | L }}" row="0" col="0" textWrap="true" class="titleicons R-light"></Label>
 
             <Button text="&#xf0f4;" row="0" col="1" class="fa iconOption" (tap)="UbicationsPlace(2)"></Button>
-            <Label text="Biblioteca" row="0" col="1" textWrap="true" class="titleicons R-light"></Label>
+            <Label text="{{'places.library' | L }}" row="0" col="1" textWrap="true" class="titleicons R-light"></Label>
 
             <Button text="&#xf0fa;" row="0" col="2" class="fa iconOption" (tap)="UbicationsPlace(3)"></Button>
-            <Label text="Hospital" row="0" col="2" textWrap="true" class="titleicons R-light"></Label>
+            <Label text="{{'places.hospital' | L }}" row="0" col="2" textWrap="true" class="titleicons R-light"></Label>
 
             <Button text="&#xf0fd;" row="0" col="3" class="fa iconOption" (tap)="UbicationsPlace(4)"></Button>
-            <Label text="Hoteles" row="0" col="3" textWrap="true" class="titleicons R-light"></Label>
+            <Label text="{{'places.hotels' | L }}" row="0" col="3" textWrap="true" class="titleicons R-light"></Label>
 
             <Button text="&#xf0fc;" row="1" col="0" class="fa iconOption" (tap)="UbicationsPlace(5)"></Button>
-            <Label text="Bares" row="1" col="0" textWrap="true" class="titleicons R-light"></Label>
+            <Label text="{{'places.pubs' | L }}" row="1" col="0" textWrap="true" class="titleicons R-light"></Label>
 
             <Button text="&#xf12e;" row="1" col="1" class="fa iconOption" (tap)="UbicationsPlace(6)"></Button>
-            <Label text="Recreacion" row="1" col="1" textWrap="true" class="titleicons R-light"></Label>
+            <Label text="{{'places.recreation' | L }}" row="1" col="1" textWrap="true" class="titleicons R-light"></Label>
         </GridLayout>
     </GridLayout>
 </StackLayout>
