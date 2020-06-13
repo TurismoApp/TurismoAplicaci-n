@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="_places_recreation_ZGVtvt">"Recreation"</string>
+  <string name="_places_pubs_10Ce4X">"Bars"</string>
+  <string name="_places_hotels_ZFCTkR">"Hotels"</string>
+  <string name="_places_hospital_o24u">"Hospital"</string>
+  <string name="_places_library_Z1UlToO">"Library"</string>
+  <string name="_places_restaurant_Z1i7k2N">"Restaurant"</string>
+  <string name="_places_subtitle_Z24u7Eb">"Find places of your liking"</string>
+  <string name="_places_title_Nt3Uh">"Places"</string>
+  <string name="_imageModal_title_Z2rlm0">"Images"</string>
+  <string name="_map_every_ZbytWX">"Everything"</string>
+  <string name="_map_home_9CYVF">"Home"</string>
+  <string name="_map_save_9EnsP">"Save"</string>
+  <string name="_detail_description_yEKsb">"Description"</string>
+  <string name="_playlist_detailTopArtist_Z2dhN6u">"Fashion artists"</string>
+  <string name="_playlist_topArtist_Z1mocBE">"Top Artists"</string>
+  <string name="_playlist_detailTopAlbums_Z2dIwjq">"The most popular albums"</string>
+  <string name="_playlist_topAlbums_Z1mOUOA">"Top Albums"</string>
+  <string name="_playlist_detailTopSongs_15RkK1">"The most listened songs of the genre Vallenato"</string>
+  <string name="_playlist_topSongs_8v6rt">"Top Songs"</string>
+  <string name="_playlist_bar_FO78t">"Yucapp music"</string>
+  <string name="_app_name_1k3Sbz">"Yucapp"</string>
+  <string name="app_name">"Yucapp"</string>
+  <string name="title_activity_kimera">"Yucapp"</string>
+</resources>

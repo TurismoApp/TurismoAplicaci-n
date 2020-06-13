@@ -7,7 +7,7 @@ import { listActivityService } from '~/service/list-activity.service';
 import { switchMap } from 'rxjs/internal/operators';
 import { PageRoute } from 'nativescript-angular/router';
 import { shcedules } from '~/models/schedules.model';
-
+import { device } from "@nativescript/core/platform";
 
 @Component({
 	selector: 'ns-list-activities',

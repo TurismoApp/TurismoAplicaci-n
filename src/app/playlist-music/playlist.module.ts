@@ -5,6 +5,7 @@ import { MusicBarComponent } from "./music-bar/music-bar.component";
 import { NativeScriptCommonModule } from "nativescript-angular/common";
 import { MusicReproductorComponent } from "./music-reproductor/music-reproductor.component";
 import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angular/side-drawer-directives";
+import { NativeScriptLocalizeModule } from "nativescript-localize/angular";
 
 @NgModule({
     bootstrap: [
@@ -18,7 +19,8 @@ import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angul
     imports: [
         PlayListRoutingModule,
         NativeScriptCommonModule,
-        NativeScriptUISideDrawerModule
+        NativeScriptUISideDrawerModule,
+        NativeScriptLocalizeModule
     ],
     providers: [],
     entryComponents: [MusicReproductorComponent],
