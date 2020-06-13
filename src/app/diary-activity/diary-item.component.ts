@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Activity } from '~/models/activity.model';
 import { DetailService } from './../../service/details-activity.service';
+import { NotificationService } from '~/service/notification.service';
 import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
@@ -17,7 +18,7 @@ import { NavigationExtras, Router } from '@angular/router';
   `,
   styleUrls: ['./diary-activity.component.css']
 })
-export class DiaryItem implements OnInit{
+export class DiaryItem implements OnInit {
 
   @Input() activity: Activity;
   constructor(
@@ -27,10 +28,12 @@ export class DiaryItem implements OnInit{
 
   ngOnInit() {
   }
-  
-  DeleteActivity(activity: Activity) {
+  async DeleteActivity(activity: Activity) {
     DetailService.DeteleData(activity);
     this.detailservice.ActivityDelete.emit(DetailService.GetListActivity());
+
+    await NotificationService.GenerateShedules();
+
   }
 
   itemTap(item: Activity) {

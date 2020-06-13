@@ -4,6 +4,8 @@ import { ObservableArray } from 'tns-core-modules/data/observable-array/observab
 import { Observable } from 'tns-core-modules/ui/page/page';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { listActivityService } from '~/service/list-activity.service';
+import { NotificationService } from '~/service/notification.service';
+import { LocalNotifications } from "nativescript-local-notifications";
 import { switchMap } from 'rxjs/internal/operators';
 import { PageRoute } from 'nativescript-angular/router';
 import { shcedules } from '~/models/schedules.model';
@@ -16,7 +18,7 @@ import { device } from "@nativescript/core/platform";
 })
 
 export class ListActivitiesComponent extends Observable implements OnInit {
-
+	listShedules: Activity[] = [];
 
 	private _sourceDataItems = new ObservableArray<Activity>();
 	public idActivity: number = null;

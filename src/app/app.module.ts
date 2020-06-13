@@ -21,6 +21,7 @@ import { NativeScriptFormsModule } from "nativescript-angular/forms";
 import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
 import { NativeScriptLocalizeModule } from "nativescript-localize/angular";
 
+
 @NgModule({
     bootstrap: [
         AppComponent
@@ -44,7 +45,7 @@ import { NativeScriptLocalizeModule } from "nativescript-localize/angular";
         MapComponent,
         BottomMenuComponent,
         ActionBarComponent,
-        PlacesInterestComponent
+        PlacesInterestComponent,
     ],
     entryComponents: [imagesModalComponent],
     providers: [],
