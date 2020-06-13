@@ -728,7 +728,7 @@ export class MapComponent implements OnInit {
 	}
 	mapMarkersUbications(ubication: ubications) {
 		let title = ubication.inplace != null ? ubication.inplace.name : ubication.activityOwner.title;
-		let subtitle = ubication.inplace != null ? ubication.inplace.description : ubication.activityOwner.description;
+		let subtitle = ubication.inplace != null ? ubication.inplace.direction : ubication.activityOwner.description;
 		return {
 			lat: ubication.latitude,
 			lng: ubication.longitude,
