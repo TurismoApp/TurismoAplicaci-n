@@ -1,5 +1,22 @@
-<ns-action-bar></ns-action-bar>
-<RadListView #listView [items]="dataItems" loadOnDemandMode="Auto" backgroundColor="white">
+<ns-action-bar></ns-action-bar> 
+<RadListView #listView *ngIf="idActivity == null" [items]="dataItems" loadOnDemandMode="Auto" backgroundColor="white">
+    <ng-template let-item="item">
+        <GridLayout pageTransition="slide" rows="*,auto" columns="*" class="activityCard" (tap)="onDetailActivity(item)">
+            <Image row="0" class="imageurl" col="0" [src]="item.images[0].link" Width="100%" height="auto" loadMode="async" stretch="aspectFit" class="imageActivity"></Image>
+            <GridLayout row="1" col="0" rows="*,*" columns="*, auto" class="descriptionGrid">
+                <Label text="{{item.title}}" androidElevation="1" row="0" col="0" class="title R-regular" 
+                    textWrap="true"></Label>
+                <Label
+                    text="{{ item.dateStart  | date:'mediumDate' }} - {{ item.dateEnd  | date:'mediumDate' }}"
+                    row="1" col="0" class="dates R-light" textWrap="true"></Label>
+                <label text="&#xf073;" row="0" rowSpan="2" col="1"
+                    class="fa calendarIcon {{stateActivity(item)}}"></label>
+            </GridLayout>
+        </GridLayout>
+        <!--  <ns-list-item [activity]="item"></ns-list-item> -->
+    </ng-template>
+</RadListView>
+<RadListView #listViewChronograms *ngIf="idActivity != null" [items]="dataChronogram" backgroundColor="white">
     <ng-template let-item="item">
         <GridLayout pageTransition="slide" rows="*,auto" columns="*" class="activityCard" (tap)="onDetailActivity(item)">
             <Image row="0" class="imageurl" col="0" [src]="item.images[0].link" Width="100%" height="auto" loadMode="async" stretch="aspectFit" class="imageActivity"></Image>

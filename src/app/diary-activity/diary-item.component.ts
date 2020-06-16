@@ -1,13 +1,15 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Activity } from '~/models/activity.model';
 import { DetailService } from './../../service/details-activity.service';
+import { NotificationService } from '~/service/notification.service';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'ns-diary-activity',
   template: ` 
-    <GridLayout pageTransition="slide" rows="auto" columns="auto, *, auto"  class="activityCard">
-    <Image row="0" col="0" src="{{activity.images[0].link}}" stretch="aspectFill" horizontalAlignment="left"  class="imageActivity"></Image>              
-        <StackLayout row="0" col="1">
+    <GridLayout pageTransition="slide" rows="auto" columns="auto, *, auto"  class="activityCard"  >
+    <Image row="0" col="0" src="{{activity.images[0].link}}" stretch="aspectFill" horizontalAlignment="left"  class="imageActivity" (tap)="itemTap(activity)"></Image>              
+        <StackLayout row="0" col="1" (tap)="itemTap(activity)">
         <Label text="{{activity.title}}" class="title R-regular" textWrap="true"></Label>
         <Label text="{{ activity.dateStart  | date:'mediumDate' }} - {{ activity.dateEnd  | date:'mediumDate' }}"  verticalAlignment="bottom" class="dates R-light" textWrap="true"></Label>
         </StackLayout>
@@ -16,17 +18,29 @@ import { DetailService } from './../../service/details-activity.service';
   `,
   styleUrls: ['./diary-activity.component.css']
 })
-export class DiaryItem {
+export class DiaryItem implements OnInit {
 
   @Input() activity: Activity;
-  constructor(private detailservice: DetailService) {
-
+  constructor(
+    private detailservice: DetailService,
+    private router: Router) {
   }
 
-  DeleteActivity(activity: Activity) {
+  ngOnInit() {
+  }
+  async DeleteActivity(activity: Activity) {
     DetailService.DeteleData(activity);
     this.detailservice.ActivityDelete.emit(DetailService.GetListActivity());
+
+    await NotificationService.GenerateShedules();
+
   }
 
+  itemTap(item: Activity) {
+    let navigationExtras: NavigationExtras = {
+			queryParams: item
+		};
+		this.router.navigate(["detailsActivity"], navigationExtras);
+  }
 
 }

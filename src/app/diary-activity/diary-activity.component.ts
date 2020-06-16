@@ -4,6 +4,7 @@ import { ObservableArray } from 'tns-core-modules/data/observable-array/observab
 import { Observable } from 'tns-core-modules/ui/page/page';
 import { DetailService } from '../../service/details-activity.service';
 import { Activity } from '~/models/activity.model';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'ns-diaryactivity',
@@ -17,22 +18,24 @@ export class DiaryActivityComponent extends Observable implements OnInit {
   @Input() activity: Activity;
 
 
-  constructor(private detailservice: DetailService) {
+  constructor(
+    private detailservice: DetailService,
+    private router: Router
+  ) {
     super();
     this.dataItems = new ObservableArray<Activity>();
     this._sourceDataItems = DetailService.GetListActivity();
     this.detailservice.ActivityDelete.subscribe(Response => {
       this.dataItems = DetailService.GetListActivity();
-      this._sourceDataItems = DetailService.GetListActivity();
+      this._sourceDataItems = DetailService.GetListActivity(); 
     });
-
-    this.addMoreItemsFromSource(5, null);
+   
+    this.addMoreItemsFromSource(this._sourceDataItems.length, null);
   }
 
   ngOnInit(): void {
 
   }
-
 
   get dataItems(): ObservableArray<Activity> {
     return this.get("_dataItems");

@@ -1,0 +1,96 @@
+<music-bar></music-bar>
+<RadSideDrawer tkExampleTitle drawerContentSize="500" gesturesEnabled="false">
+    <GridLayout tkDrawerContent rows="56, *" columns="*" class="sideStackLayout" top="100px">
+        <StackLayout class="sideTitleStackLayout" row="0" col="0">
+            <GridLayout rows="*" columns="*, auto" width="100%">
+                <Label row="0" col="0" text="{{title}}" class="R-bold titleOfSelection"  color="white" textWrap="true"></Label>
+                <label text="&#xf00d;" (tap)=" onCloseDrawerTap()" class="fa exit" width="50" row="0" col="1" color="white" ></label>
+            </GridLayout> 
+        </StackLayout>
+        <StackLayout row="1" col="0" height="100%" orientation="vertical">
+                <ListView [items]="source" class="list-group" height="100%" (itemTap)="onItemTap($event)" separateColor="transparent">
+                    <ng-template let-item="item" let-odd="odd" let-even="even">
+                        <StackLayout height="25">
+                            <Label [text]="item.title" class="R-regular titleSong"></Label>
+                            <Label [text]="toTime(item.duration)" class="R-thin durationSong"></Label>
+                        </StackLayout>
+                    </ng-template>
+                </ListView>
+        </StackLayout>
+    </GridLayout>
+    <ScrollView tkMainContent height="auto">
+        <GridLayout rows="*, *, *" columns="*" height="auto">
+            <StackLayout class="Top-c" row="0" col="0" height="380">
+                <Label text="{{'playlist.topSongs' | L }}" class="R-black title"></Label>
+                <Label text="{{'playlist.detailTopSongs' | L }}" textWrap="true"
+                    class="R-regular subtitle" color="dimgray"></Label>
+                <ScrollView orientation="horizontal" scrollBarIndicatorVisible="false">
+                    <StackLayout orientation="horizontal" height="300">
+                        <StackLayout orientation="vertical" *ngFor="let item of topCanciones" (tap)="viewSong(item)">
+                            <GridLayout rows="*, auto" columns="*">
+                                <StackLayout row="0" col="0" class="templateArtist" width="160">
+                                    <Image horizontalAlignment="center" [src]="item.image" stretch="aspectFill"
+                                        class="imageSong"></Image>
+                                </StackLayout>
+                                <StackLayout row="1" col="0" class="itemTextSong">
+                                    <Label
+                                        text="{{ item.name.length > 15 ? (item.name | slice:0:15) + '..' : item.name}}"
+                                        class="titleSong R-bold"></Label>
+                                    <Label
+                                        [text]="item.artist.length > 15 ? ( item.artist | slice:0:15) + '..' : item.artist"
+                                        class="durationSong R-thin"></Label>
+                                </StackLayout>
+                            </GridLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+            <StackLayout row="1" col="0" class="Top-c" height="380" backgroundColor="whitesmoke">
+                <Label text="{{ 'playlist.topAlbums' | L }}" class="R-black title" color="#FF317B"></Label>
+                <Label text="{{ 'playlist.detailTopAlbums' | L }}" textWrap="true" class="R-regular subtitle"
+                    color="dimgray"></Label>
+                <ScrollView orientation="horizontal" scrollBarIndicatorVisible="false">
+                    <StackLayout orientation="horizontal" height="300">
+                        <StackLayout orientation="vertical" *ngFor="let item of topAlbumes">
+                            <GridLayout rows="*, auto" columns="*" (tap)="openDrawer(item)">
+                                <StackLayout row="0" col="0" class="templateArtist" width="160">
+                                    <Image horizontalAlignment="center" [src]="item.image" stretch="aspectFill"
+                                        class="imageSong"></Image>
+                                </StackLayout>
+                                <StackLayout row="1" col="0" class="itemTextSong">
+                                    <Label
+                                        text="{{ item.name.length > 15 ? (item.name | slice:0:15) + '..' : item.name }}"
+                                        class="titleSong R-bold"></Label>
+                                    <Label
+                                        text="{{ item.artist.length ? (item.artist | slice:0:15) + '..' : item.artist }}"
+                                        class="durationSong R-thin"></Label>
+                                </StackLayout>
+                            </GridLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+            <StackLayout row="2" col="0" class="Top-c" height="300" backgroundColor="white">
+                <Label text="{{'playlist.topArtist'| L}}" class="R-black title" color="#FF317B"></Label>
+                <Label text="{{'playlist.detailTopArtist' | L}}" textWrap="true" class="R-regular subtitle" color="dimgray"></Label>
+                <ScrollView orientation="horizontal" scrollBarIndicatorVisible="false">
+                    <StackLayout orientation="horizontal" height="300">
+                        <StackLayout orientation="vertical" *ngFor="let item of topArtist">
+                            <GridLayout rows="*, auto" columns="*" (tap)="openDrawer(item)">
+                                <StackLayout row="0" col="0" class="templateArtist" width="160">
+                                    <Image horizontalAlignment="center" [src]="item.image" stretch="aspectFill"
+                                        class="imageSong"></Image>
+                                </StackLayout>
+                                <StackLayout row="1" col="0" class="itemTextSong">
+                                    <Label
+                                        text="{{ item.name.length > 15 ? (item.name | slice:0:15) + '..' : item.name}}"
+                                        class="titleSong R-bold"></Label>
+                                </StackLayout>
+                            </GridLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+        </GridLayout>
+    </ScrollView>
+</RadSideDrawer>

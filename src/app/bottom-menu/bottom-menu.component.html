@@ -1,28 +1,33 @@
-<GridLayout class="menuBottom" rows="auto" columns="*,*,*,*" height="50" width="auto">
+<GridLayout class="menuBottom" rows="auto" columns="*,*,*,*,*" height="50" width="auto">
     <StackLayout (tap)="menuDirections('listActivity')" class="menuItem" row="0" col="0">
         <StackLayout class="menuButton">
-            <Label text="&#xf046;" class="fa"></Label>
+            <Label text="&#xf046;" class="fa icon" [ngClass]="{active: menu === 'listActivity'}"></Label>
         </StackLayout>
     </StackLayout>
 
     <StackLayout (tap)="menuDirections('diaryActivity')" class="menuItem" row="0" col="1">
         <StackLayout class="menuButton">
-            <Label text="&#xf02d;" class="fa"></Label>
+            <Label text="&#xf02d;" class="fa icon" [ngClass]="{active: menu === 'diaryActivity'}"></Label>
         </StackLayout>
     </StackLayout>
 
-    <StackLayout (tap)="menuDirections('mapComponent/true')" class="menuItem" row="0" col="2" height="100%">
+    <StackLayout (tap)="menuDirections('mapComponent/true')" class="menuItem"  row="0" col="2" height="100%">
         <StackLayout class="menuButton">
-            <Label text="&#xf041;" class="fa"></Label>
+            <Label text="&#xf041;" class="fa icon" [ngClass]="{active: menu === 'mapComponent/true'}"></Label>
         </StackLayout>
     </StackLayout>
 
     <StackLayout (tap)="menuDirections('places')" class="menuItem" row="0" col="3">
         <StackLayout class="menuButton">
-            <Label text="&#xf1d8;" class="fa"></Label>
+            <Label text="&#xf1d8;" class="fa icon" [ngClass]="{active: menu === 'places'}"></Label>
         </StackLayout>
     </StackLayout>
 
+    <StackLayout (tap)="menuDirections('playList')" class="menuItem" row="0" col="4">
+        <StackLayout class="menuButton">
+            <Label text="&#xf001;" class="fa icon" [ngClass]="{active: menu === 'playList'}"></Label>
+        </StackLayout>
+    </StackLayout>
     <!-- <StackLayout row="0" col="4">
         <Label text="&#xf046;" class="fa"></Label>
     </StackLayout> -->

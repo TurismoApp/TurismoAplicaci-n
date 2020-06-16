@@ -12,11 +12,15 @@ import { DiaryActivityComponent } from './diary-activity/diary-activity.componen
 import { MapComponent } from "./map-component/Map.component";
 import { BottomMenuComponent } from "./bottom-menu/bottom-menu.component";
 import { ActionBarComponent } from "./action-bar/action-bar.component";
+import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angular";
+import { PlacesInterestComponent } from "./places-interest/places-interest.component";
 // Uncomment and add to NgModule imports if you need to use two-way binding
-// import { NativeScriptFormsModule } from "nativescript-angular/forms";
+import { NativeScriptFormsModule } from "nativescript-angular/forms";
 
 // Uncomment and add to NgModule imports if you need to use the HttpClient wrapper
- import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
+import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
+import { NativeScriptLocalizeModule } from "nativescript-localize/angular";
+
 
 @NgModule({
     bootstrap: [
@@ -26,8 +30,10 @@ import { ActionBarComponent } from "./action-bar/action-bar.component";
         PagerModule,
         NativeScriptModule,
         AppRoutingModule,
+        NativeScriptFormsModule,
+        NativeScriptHttpClientModule,
         NativeScriptUIListViewModule,
-        NativeScriptHttpClientModule
+        NativeScriptLocalizeModule
     ],
     declarations: [
         AppComponent,
@@ -38,7 +44,8 @@ import { ActionBarComponent } from "./action-bar/action-bar.component";
         DiaryActivityComponent,
         MapComponent,
         BottomMenuComponent,
-        ActionBarComponent
+        ActionBarComponent,
+        PlacesInterestComponent,
     ],
     entryComponents: [imagesModalComponent],
     providers: [],

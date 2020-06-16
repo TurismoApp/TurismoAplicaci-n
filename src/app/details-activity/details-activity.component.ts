@@ -10,6 +10,10 @@ import { listActivityService } from '~/service/list-activity.service';
 import { ObservableArray } from 'tns-core-modules/data/observable-array/observable-array';
 import { RouterExtensions } from 'nativescript-angular/router';
 
+import { NotificationService } from '~/service/notification.service';
+import { LocalNotifications } from "nativescript-local-notifications";
+
+
 @Component({
   selector: 'ns-details-activity',
   providers: [imagesModalComponent],
@@ -35,31 +39,35 @@ export class DetailsActivityComponent implements OnInit {
       this.activity = params;
       (await this.listService.getImages(params.id)).subscribe(images => {
         this.imagenes = [];
-        images.forEach( item => {
+        images.forEach(item => {
           this.imagenes.push(item.link);
         });
       });
     });
-    
+
   }
 
-  SaveDetailActivity(activity: Activity) {
+  async SaveDetailActivity(activity: Activity) {
+    for (let index = 0; index < this.imagenes.length; index++) {
+      activity.images[index] = { idActivity: activity.id, link: this.imagenes[index] };
+    }
     if (this.listActivitySave.length > 0) {
       let isactivity = this.listActivitySave.find(item => item.id === this.activity.id);
       !isactivity ? this.listActivitySave.push(activity) : null;
     } else {
       this.listActivitySave.push(activity);
     }
-
     DetailService.SaveActivity(this.listActivitySave);
+    await NotificationService.GenerateShedules();
   }
 
   validateState(activity: Activity) {
     return DetailService.ValidateStateActivity(activity, this.listActivitySave);
   }
 
-  DeleteState(activity: Activity) {
+  async DeleteState(activity: Activity) {
     DetailService.DeleteActivity(activity, this.listActivitySave);
+    await NotificationService.GenerateShedules();
   }
 
   ActivityState(activity: Activity) {
@@ -68,7 +76,11 @@ export class DetailsActivityComponent implements OnInit {
   }
 
   seeUbications(activity: Activity) {
-    this.navigation.navigateByUrl("/mapComponent");
+    this.navigation.navigateByUrl("mapComponent/ubicationActivity/" + activity.id);
+  }
+
+  seeChronograms(activity: Activity) {
+    this.navigation.navigateByUrl("/listActivity/Chronograms/" + activity.id);  
   }
 
   ShowModal() {

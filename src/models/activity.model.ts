@@ -8,6 +8,7 @@ export class Activity {
     dateStart: Date;
     dateEnd?: Date;
     state: string;
+    imageUrl?: string;
     idUbicación?: number;
 
     constructor() {

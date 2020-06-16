@@ -1,11 +1,15 @@
-Label {
+.icon {
     margin: 0;
     padding: 0;
     font-size: 25;
     text-align: center;
-    color:#FF317B;
+    color:dimgray;
     border: 0;
     height: auto;
+}
+
+.active {
+    color: #FF317B;
 }
 
 .menuBottom {
@@ -19,3 +23,6 @@ Label {
     height: 100%;
 }
 
+.textmenu {
+    font-size: 10;
+}

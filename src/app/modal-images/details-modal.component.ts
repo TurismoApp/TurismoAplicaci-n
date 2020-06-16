@@ -8,7 +8,7 @@ import { ModalDialogParams } from 'nativescript-angular/modal-dialog';
     <AbsoluteLayout width="100%" height="100" class="actionBarSupler">
     <GridLayout rows="auto" columns="auto, *" top="40" width="100%">
         <button row="0" col="0" text="&#xf00d;" class="fa botonExit"  (tap)="close()"></button>
-        <Label row="0" col="1" text="Imagenes" class="R-thin titleBar"></Label>
+        <Label row="0" col="1" text="{{'imageModal.title' | L}}" class="R-thin titleBar"></Label>
     </GridLayout>
     </AbsoluteLayout>
     <Pager loaded="onPageLoaded" width="auto" height="auto" [items]="images" selectedIndex="0">

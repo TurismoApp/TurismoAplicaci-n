@@ -7,9 +7,11 @@ import * as appSettings from "tns-core-modules/application-settings";
 })
 export class DetailService {
     ActivityDelete = new EventEmitter<Activity[]>();
+    
     construcor() {
 
     }
+
     public static SaveActivity(activity: Activity[]) {
         appSettings.setString("activity", JSON.stringify(activity));
     }

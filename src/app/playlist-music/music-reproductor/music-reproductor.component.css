@@ -1,0 +1,52 @@
+.btn-reproduction {
+    text-align: center;
+    font-size: 24;
+    margin: 50;
+}
+
+.dialogStyle {
+    background: #ECE9E6;  /* fallback for old browsers */
+    background: linear-gradient(to bottom, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.image {
+    border-radius: 15%;
+    width: 70%;
+    margin: 10;
+}
+
+.imageCont {
+    border-radius: 15%;
+}
+
+.title {
+    width: 100%;
+    text-align: center;
+    font-size: 20;
+}
+
+.btn-play,.btn-options,.btn-move {
+    vertical-align: middle;
+}
+.btn-options {
+    color: #FF317B;
+}
+
+.btn-play {
+    font-size: 50;
+}
+
+.btn-move {
+    font-size: 30;
+}
+.Deezzer {
+    margin-top: 40;
+    padding-left: 10;
+}
+
+.exit {
+    text-align: center;
+    margin-top: 25;
+    font-size: 30;
+    color: #FF317B; 
+}
