@@ -9,6 +9,10 @@
         "topArtist": "Top Artists",
         "detailTopArtist": "Fashion artists"
     },
+    "diary": {
+        "message-one": "There is no activity saved",
+        "message-two": "Look at the activities you like the most and click on & # xf097; and you can see them in this list"
+    },
     "detail": {
         "description": "Description"
     },

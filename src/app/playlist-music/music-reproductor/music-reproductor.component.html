@@ -8,7 +8,7 @@
             <StackLayout row="0" col="0" class="imageCont" width="auto" height="50%">
                 <Image stretch="aspectFill" androidElevation="5" class="image" [src]="image"></Image>
             </StackLayout>
-            <label row="1" col="0" text="{{title}}" textWrap="true" class="title"></label>
+            <label row="1" col="0" [text]="nameSong()" textWrap="true" class="title"></label>
         </GridLayout>
         <GridLayout width="100%" class="btn-reproduction" rows="*" columns="*,*,*,*,*" row="2" col="0">   
             <Label text="&#xf048;" row="0" col="1" class="fa btn-move" (tap)="back()"></Label>

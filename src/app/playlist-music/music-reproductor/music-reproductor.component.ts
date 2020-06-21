@@ -65,6 +65,9 @@ export class MusicReproductorComponent implements OnInit, OnDestroy {
 		this.move(this.index);
 	}
 
+	nameSong() {
+		return this.title;
+	}
 	play() {
 		this.playerSong.togglePlay();
 	}

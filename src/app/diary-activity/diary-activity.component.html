@@ -1,6 +1,17 @@
 <ns-action-bar></ns-action-bar>
-<RadListView #listView [items]="dataItems" backgroundColor="white">
-    <ng-template let-item="item">
-        <ns-diary-activity [activity]="item"></ns-diary-activity>
-    </ng-template>
-</RadListView>
+<StackLayout *ngIf="dataItems.length > 0" height="100%">
+    <RadListView #listView [items]="dataItems" backgroundColor="white">
+        <ng-template let-item="item">
+            <ns-diary-activity [activity]="item"></ns-diary-activity>
+        </ng-template>
+    </RadListView>
+</StackLayout>
+<StackLayout orientation="horizontal" *ngIf="dataItems.length === 0" height="100%">
+    <StackLayout verticalAlignment="center"   height="auto" margin="30">
+        <GridLayout rows="25,auto,50" columns="*" class="info">
+            <label row="0" col="0" text="{{'diary.message-one' | L}}" class="phtext"></label>
+            <label row="1" col="0" text="&#xf073;" class="fa iconCalendar"></label>
+            <label row="2" col="0" textWrap="true" text="{{'diary.message-two' | L}}" class="fa phtext"></label>
+        </GridLayout>
+    </StackLayout>
+</StackLayout>

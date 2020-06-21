@@ -39,4 +39,17 @@
     font-size: 25;
     color: #FF317B;
 }
- 
+
+.iconCalendar {
+    font-size: 100;
+    color: rgb(158, 158, 158);
+}
+
+.phtext {
+    color: rgb(158, 158, 158);
+    font-size: 15;
+}
+
+.info {
+    text-align: center;
+}
