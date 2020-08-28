@@ -1,4 +1,10 @@
 {
+  "scripts": {
+    "gen:debug":"tns build android",
+    "gen:release": "tns build android --release --key-store-path ./keystoreBundle.jks --key-store-password yucapp --key-store-alias yucappKey --key-store-alias-password yucapp",
+    "android": "tns run android",
+    "android:env":"tns run android --env.uglify"
+  },
   "nativescript": {
     "id": "org.nativescript.Yucapp",
     "tns-android": {
