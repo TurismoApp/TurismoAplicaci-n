@@ -1,1 +1,1 @@
-export const host = 'https://81ac12d96273.ngrok.io';
+export const host = 'https://api-yucapp.herokuapp.com';
